@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import proyecto.AsoDesUnidos.BD.ConexionBaseDatos;
+import proyecto.AsoDesUnidos.Controladores.Admin.AdminActivity;
 import proyecto.AsoDesUnidos.DataAccessObjects.UsuarioDAO;
 import proyecto.AsoDesUnidos.Modelos.Usuario;
 import proyecto.AsoDesUnidos.R;
@@ -19,9 +20,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText txtNombre;
     private EditText txtClave;
-    private Button btnIngresar;
-    private Button btnSalir;
-    private UsuarioDAO usuarioDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +27,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         txtNombre = findViewById(R.id.txtNombre);
         txtClave = findViewById(R.id.txtClave);
-        btnIngresar = findViewById(R.id.btnIngresar);
-        btnSalir = findViewById(R.id.btnSalir);
+        Button btnIngresar = findViewById(R.id.btnIngresar);
+        Button btnSalir = findViewById(R.id.btnSalir);
 
 
         //inicializacion de BD.
@@ -52,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
                 ConexionBaseDatos.class, "database-name").allowMainThreadQueries().build();
         String username;
         String password;
-        usuarioDAO = db.usuarioDAO();
+        UsuarioDAO usuarioDAO = db.usuarioDAO();
         Usuario user;
         Intent intent;
         if (verificarCampo(txtNombre, txtClave)) {
@@ -76,7 +74,6 @@ public class LoginActivity extends AppCompatActivity {
 
     public void Salir()
     {
-
         finish();
     }
     private boolean verificarCampo(EditText campo1, EditText campo2 ){
