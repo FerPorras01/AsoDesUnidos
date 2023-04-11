@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
         String password;
         UsuarioDAO usuarioDAO = db.usuarioDAO();
         Usuario user;
-        Intent intent;
+        Intent intent = null;
         if (verificarCampo(txtNombre, txtClave)) {
             username = txtNombre.getText().toString();
             password = txtClave.getText().toString();
@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (user.getRol().equals("administrador")) {
                     intent = new Intent(this, AdminActivity.class);
                 } else {
-                    intent = new Intent(this, ClientActivity.class);
+                    //intent = new Intent(this, ClientActivity.class);
                 }
                 startActivity(intent);
                 finish();

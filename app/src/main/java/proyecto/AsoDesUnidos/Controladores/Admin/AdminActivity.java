@@ -21,7 +21,7 @@ public class AdminActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityAdminBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        replaceFragment(new Fragment());
+        replaceFragment(new AdminInicioFragment());
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
 

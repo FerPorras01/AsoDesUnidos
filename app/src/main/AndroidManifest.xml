@@ -12,9 +12,6 @@
         android:theme="@style/Theme.AsoDesUnidos"
         tools:targetApi="31">
         <activity
-            android:name=".Controladores.ClientActivity"
-            android:exported="false" />
-        <activity
             android:name=".Controladores.Admin.AdminActivity"
             android:exported="false" />
         <activity
