@@ -12,7 +12,7 @@
         android:theme="@style/Theme.AsoDesUnidos"
         tools:targetApi="31">
         <activity
-            android:name=".Controladores.ClientActivity"
+            android:name=".Controladores.Cliente.ClientActivity"
             android:exported="false" />
         <activity
             android:name=".Controladores.AdminActivity"
