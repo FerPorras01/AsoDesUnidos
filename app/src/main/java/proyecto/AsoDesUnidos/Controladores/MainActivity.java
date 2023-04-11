@@ -28,18 +28,16 @@ public class MainActivity extends AppCompatActivity {
         login.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP) ;
         this.startActivity(login);
         finish();
+        Usuario usuario1= new Usuario("mario12", "jsjsjdjsha22*","cliente");
+        Usuario usuario2= new Usuario("maria89", "jsjsjdooha28*","cliente");
+        Usuario usuario3= new Usuario("fernanda18", "jueyeubcdf18+","administrador");
 
         Cliente mario= new Cliente("402450378", "Mario", 255.000, "7667-5665", LocalDate.of(2010,05,01),"soltero", "400 metros oeste del HSVP");
         Cliente maria= new Cliente("402450320", "Maria", 355.000, "7688-5665", LocalDate.of(2000,02,10),"Soltero", "300 metros oeste del HSVP");
         Cliente fer= new Cliente("402450321", "Fernanda", 555.000, "8546-5164", LocalDate.of(2001,02,10),"Soltero", "400 metros oeste del parque de San Pedro");
 
-        Usuario usuario1= new Usuario("mario12", "jsjsjdjsha22*","cliente");
-        Usuario usuario2= new Usuario("maria89", "jsjsjdooha28*","cliente");
-        Usuario usuario3= new Usuario("fernanda18", "jueyeubcdf18+","administrador");
-
-
-       // db.usuarioDAO().insertAll(usuario1, usuario2, usuario3);
-       // db.clienteDAO().insertAll(mario, maria, fer);
+        db.usuarioDAO().insertAll(usuario1, usuario2, usuario3);
+       db.clienteDAO().insertAll(mario, maria, fer);
         List<Cliente> clienteList=db.clienteDAO().getAllClientes();
         for(Cliente list: clienteList){
             Log.d("Cliente", list.cedula + " " + list.nombre + " " + list.salario + " " + list.telefono + " " + list.fecNac + " " + list.estCivil + " " + list.direccion);
