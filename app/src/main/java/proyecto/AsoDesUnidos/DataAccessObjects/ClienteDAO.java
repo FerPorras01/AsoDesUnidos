@@ -28,6 +28,9 @@ public interface ClienteDAO {
     @Query("SELECT * FROM cliente")
     public Cliente[] loadAllClients();
 
+    @Query("SELECT * FROM cliente where idUsuario = :idUsuario;")
+    Cliente getClienteByIdUsuario(int idUsuario);
+
 }
 
 
