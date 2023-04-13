@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import proyecto.AsoDesUnidos.Controladores.LoginActivity;
 import proyecto.AsoDesUnidos.Controladores.MainActivity;
+import proyecto.AsoDesUnidos.Modelos.Usuario;
 import proyecto.AsoDesUnidos.R;
 
 /**
@@ -28,7 +29,7 @@ public class AdminInicioFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private String nombreUsuario;
+    private Usuario nombreUsuario;
     private TextView textView2;
     public AdminInicioFragment() {
         // Required empty public constructor
@@ -68,9 +69,9 @@ public class AdminInicioFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_admin_inicio, container, false);
-        nombreUsuario = getArguments().getString(LoginActivity.IDUSUARIO);
+        nombreUsuario = (Usuario) getArguments().getSerializable(LoginActivity.IDUSUARIO);
         textView2 = view.findViewById(R.id.textView2);
-        textView2.setText("¡Bienvenido, "+ nombreUsuario +"!");
+        textView2.setText("¡Bienvenido, "+ nombreUsuario.nombre +"!");
         return view;
     }
 }

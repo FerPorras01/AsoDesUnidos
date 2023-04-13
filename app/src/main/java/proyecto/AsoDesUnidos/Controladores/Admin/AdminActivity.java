@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import proyecto.AsoDesUnidos.Controladores.LoginActivity;
+import proyecto.AsoDesUnidos.Modelos.Usuario;
 import proyecto.AsoDesUnidos.R;
 import proyecto.AsoDesUnidos.databinding.ActivityAdminBinding;
 
@@ -22,9 +23,9 @@ public class AdminActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityAdminBinding.inflate(getLayoutInflater());
         Intent intent = getIntent();
-        String nombreUsuario = intent.getStringExtra(LoginActivity.IDUSUARIO);
+        Usuario nombreUsuario = (Usuario) intent.getSerializableExtra(LoginActivity.IDUSUARIO);
         Bundle bundle = new Bundle();
-        bundle.putString(LoginActivity.IDUSUARIO, nombreUsuario);
+        bundle.putSerializable(LoginActivity.IDUSUARIO, nombreUsuario);
         setContentView(binding.getRoot());
         AdminInicioFragment fragment = new AdminInicioFragment();
         fragment.setArguments(bundle);
