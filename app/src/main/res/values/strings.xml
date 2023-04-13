@@ -9,4 +9,5 @@
     <string name="agregar_cliente">Agregar Cliente</string>
     <string name="agregar_pr_stamo">Agregar Préstamo</string>
     <string name="cerrar_sesi_n">Cerrar Sesión</string>
+    <string name="mensaje_bienvenida">¡Bienvenido!</string>
 </resources>

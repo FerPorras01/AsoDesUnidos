@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import proyecto.AsoDesUnidos.Controladores.LoginActivity;
@@ -20,8 +21,14 @@ public class AdminActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityAdminBinding.inflate(getLayoutInflater());
+        Intent intent = getIntent();
+        String nombreUsuario = intent.getStringExtra(LoginActivity.IDUSUARIO);
+        Bundle bundle = new Bundle();
+        bundle.putString(LoginActivity.IDUSUARIO, nombreUsuario);
         setContentView(binding.getRoot());
-        replaceFragment(new AdminInicioFragment());
+        AdminInicioFragment fragment = new AdminInicioFragment();
+        fragment.setArguments(bundle);
+        replaceFragment(fragment);
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
 

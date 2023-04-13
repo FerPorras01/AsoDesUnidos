@@ -35,7 +35,8 @@ public class Cliente {
     @ColumnInfo(name = "direccion")
     public String direccion;
 
-    public Cliente(String cedula, String nombre, Double salario, String telefono, LocalDate fecNac, String estCivil, String direccion){
+    public Cliente(int idUsuario, String cedula, String nombre, Double salario, String telefono, LocalDate fecNac, String estCivil, String direccion){
+        this.idUsuario=idUsuario;
         this.cedula=cedula;
         this.nombre=nombre;
         this.salario=salario;

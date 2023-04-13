@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import proyecto.AsoDesUnidos.BD.ConexionBaseDatos;
 import proyecto.AsoDesUnidos.Controladores.Admin.AdminActivity;
+import proyecto.AsoDesUnidos.DataAccessObjects.ClienteDAO;
 import proyecto.AsoDesUnidos.DataAccessObjects.UsuarioDAO;
 import proyecto.AsoDesUnidos.Modelos.Usuario;
 import proyecto.AsoDesUnidos.R;
@@ -20,6 +21,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText txtNombre;
     private EditText txtClave;
+    public static final String IDUSUARIO = "Admin.nombreUsuario";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +63,11 @@ public class LoginActivity extends AppCompatActivity {
                 if (user.getRol().equals("administrador")) {
                     intent = new Intent(this, AdminActivity.class);
                 } else {
+                    ClienteDAO clienteDAO = db.clienteDAO();
+
                     //intent = new Intent(this, ClientActivity.class);
                 }
+                intent.putExtra(IDUSUARIO, String.valueOf(user.id));
                 startActivity(intent);
                 finish();
             } else {
