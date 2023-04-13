@@ -26,4 +26,7 @@ public interface PrestamoDAO {
 
     @Query("SELECT * FROM prestamo")
     Prestamo[] loadAllPrestamo();
+
+    @Query("SELECT * FROM prestamo WHERE idCliente = :clienteId")
+    List<Prestamo> findByClienteId(int clienteId);
 }
