@@ -32,12 +32,12 @@ public class MainActivity extends AppCompatActivity {
     Usuario usuario2= new Usuario("maria89", "jsjsjdooha28*","cliente");
     Usuario usuario3= new Usuario("fernanda18", "jueyeubcdf18+","administrador");
 
-    Cliente mario= new Cliente("402450378", "Mario", 255.000, "7667-5665", LocalDate.of(2010,05,01),"soltero", "400 metros oeste del HSVP");
-    Cliente maria= new Cliente("402450320", "Maria", 355.000, "7688-5665", LocalDate.of(2000,02,10),"Soltero", "300 metros oeste del HSVP");
-    Cliente fer= new Cliente("402450321", "Fernanda", 555.000, "8546-5164", LocalDate.of(2001,02,10),"Soltero", "400 metros oeste del parque de San Pedro");
+    Cliente mario= new Cliente(1,"402450378", "Mario", 255.000, "7667-5665", LocalDate.of(2010,05,01),"soltero", "400 metros oeste del HSVP");
+    Cliente maria= new Cliente(2,"402450320", "Maria", 355.000, "7688-5665", LocalDate.of(2000,02,10),"Soltero", "300 metros oeste del HSVP");
+    Cliente fer= new Cliente(3, "402450321", "Fernanda", 555.000, "8546-5164", LocalDate.of(2001,02,10),"Soltero", "400 metros oeste del parque de San Pedro");
 
     //db.usuarioDAO().insertAll(usuario1, usuario2, usuario3);
-    //db.clienteDAO().insertAll(mario, maria, fer);
+        // db.clienteDAO().insertAll(mario, maria, fer);
     List<Cliente> clienteList=db.clienteDAO().getAllClientes();
     List<Usuario> usuarioList=db.usuarioDAO().getAllUsuarios();
 

@@ -1,5 +1,6 @@
 package proyecto.AsoDesUnidos.Controladores.Cliente;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,7 +8,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import proyecto.AsoDesUnidos.Controladores.LoginActivity;
+import proyecto.AsoDesUnidos.Modelos.Usuario;
 import proyecto.AsoDesUnidos.R;
 
 /**
@@ -25,6 +29,7 @@ public class ClienteInicioFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private TextView textView2;
 
     public ClienteInicioFragment() {
         // Required empty public constructor
@@ -57,10 +62,15 @@ public class ClienteInicioFragment extends Fragment {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cliente_inicio, container, false);
+        String nombreCliente=getArguments().getString(ClientActivity.nombreCliente);
+        View view = inflater.inflate(R.layout.fragment_cliente_inicio, container, false);
+        textView2 = view.findViewById(R.id.textView2);
+        textView2.setText("¡Bienvenido, "+  nombreCliente+"!");
+        return view;
     }
 }

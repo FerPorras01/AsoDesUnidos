@@ -24,6 +24,8 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnSalir;
     private UsuarioDAO usuarioDAO;
 
+    public static final String IDUSUARIO = "Cliente.idUsuario";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
         String password;
         usuarioDAO = db.usuarioDAO();
         Usuario user;
-        Intent intent;
+        Intent intent=null;
         if (verificarCampo(txtNombre, txtClave)) {
             username = txtNombre.getText().toString();
             password = txtClave.getText().toString();
@@ -63,8 +65,10 @@ public class LoginActivity extends AppCompatActivity {
             if (user != null) {
                 if (user.getRol().equals("administrador")) {
                     intent = new Intent(this, AdminActivity.class);
+                    //intent.putExtra(NOMBREUSUARIO, username);
                 } else {
                     intent = new Intent(this, ClientActivity.class);
+                    intent.putExtra(IDUSUARIO, user.id);
                 }
                 startActivity(intent);
                 finish();
