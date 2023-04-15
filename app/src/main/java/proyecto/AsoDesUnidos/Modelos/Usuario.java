@@ -5,10 +5,11 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
-public class Usuario {
+public class Usuario implements Serializable {
     @NonNull
     @PrimaryKey(autoGenerate = true)
     public int id;

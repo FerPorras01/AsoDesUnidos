@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     //intent = new Intent(this, ClientActivity.class);
                 }
-                intent.putExtra(IDUSUARIO, String.valueOf(user.id));
+                intent.putExtra(IDUSUARIO, user);
                 startActivity(intent);
                 finish();
             } else {
