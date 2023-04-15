@@ -2,8 +2,11 @@ package proyecto.AsoDesUnidos.Controladores;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
+import android.app.Activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -11,9 +14,9 @@ import java.time.LocalDate;
 import java.util.List;
 
 import proyecto.AsoDesUnidos.BD.ConexionBaseDatos;
+import proyecto.AsoDesUnidos.Controladores.Admin.AdminActivity;
 import proyecto.AsoDesUnidos.Modelos.Cliente;
 import proyecto.AsoDesUnidos.Modelos.Usuario;
-import proyecto.AsoDesUnidos.R;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -24,9 +27,32 @@ public class MainActivity extends AppCompatActivity {
         //setContentView(R.layout.activity_main);
         ConexionBaseDatos db = Room.databaseBuilder(getApplicationContext(),
                 ConexionBaseDatos.class, "database-name").allowMainThreadQueries().build();
-        Intent login = new Intent(this, LoginActivity.class);
-        login.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP) ;
-        this.startActivity(login);
+        Intent intent = null;
+        SharedPreferences sharedPreferences= getSharedPreferences("inicio_sesion", Context.MODE_PRIVATE);
+        int idUsuario = sharedPreferences.getInt("id", -1);
+        String nombreUsuario = sharedPreferences.getString("nombre_usuario", null), clave = sharedPreferences.getString("clave", null),
+        rol = sharedPreferences.getString("rol", null);
+        Usuario usuario;
+        if(idUsuario != -1){
+            switch(sharedPreferences.getString("rol", null)){
+                case "administrador":
+                    intent = new Intent(this, AdminActivity.class);
+                    break;
+                case "Cliente":
+                    //intent = new Intent(this, ClientActivity.class);
+                    break;
+            }
+            assert intent != null;
+            usuario = new Usuario(nombreUsuario, clave, rol);
+            usuario.setID(idUsuario);
+            intent.putExtra(LoginActivity.IDUSUARIO, usuario);
+        }
+        else {
+            intent = new Intent(this, LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        }
+
+        this.startActivity(intent);
         finish();
 
         Cliente mario= new Cliente(1,"402450378", "Mario", 255.000, "7667-5665", LocalDate.of(2010,5,1),"soltero", "400 metros oeste del HSVP");
@@ -50,4 +76,10 @@ public class MainActivity extends AppCompatActivity {
             Log.d("Usuario", list.nombre + " " + list.clave + " " + list.rol);
         }
     }
+    public static void cerrarSesion(Activity activity){
+        activity.getSharedPreferences("inicio_sesion", Context.MODE_PRIVATE).edit().clear().apply();
+        Intent intent = new Intent(activity, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        activity.startActivity(intent);
     }
+}

@@ -42,6 +42,8 @@ public class Usuario implements Serializable {
         return rol;
     }
 
+    public void setID(int id) {this.id = id;}
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }

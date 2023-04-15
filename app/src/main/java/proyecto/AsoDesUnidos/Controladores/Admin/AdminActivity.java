@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import proyecto.AsoDesUnidos.Controladores.LoginActivity;
+import proyecto.AsoDesUnidos.Controladores.MainActivity;
 import proyecto.AsoDesUnidos.Modelos.Usuario;
 import proyecto.AsoDesUnidos.R;
 import proyecto.AsoDesUnidos.databinding.ActivityAdminBinding;
@@ -41,7 +42,7 @@ public class AdminActivity extends AppCompatActivity {
                     replaceFragment(new AgregarPrestamoFragment());
                     break;
                 case R.id.btnCerrarSesion:
-                    finish();
+                    MainActivity.cerrarSesion(this);
                     break;
             }
 

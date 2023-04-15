@@ -3,7 +3,9 @@ package proyecto.AsoDesUnidos.Controladores;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText txtNombre;
     private EditText txtClave;
-    public static final String IDUSUARIO = "Admin.nombreUsuario";
+    public static final String IDUSUARIO = "Login.idUsuario";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
         btnIngresar.setOnClickListener(view->Ingresar());
-        btnSalir.setOnClickListener(view->Salir());
+        btnSalir.setOnClickListener(view->MainActivity.cerrarSesion(this));
 
 
         //Configurar botón de Ingresar segun rol
@@ -50,24 +52,31 @@ public class LoginActivity extends AppCompatActivity {
     public void Ingresar() {
         ConexionBaseDatos db = Room.databaseBuilder(getApplicationContext(),
                 ConexionBaseDatos.class, "database-name").allowMainThreadQueries().build();
-        String username;
-        String password;
+        String nombreUsuario;
+        String clave;
+        Usuario usuario;
         UsuarioDAO usuarioDAO = db.usuarioDAO();
-        Usuario user;
+        SharedPreferences sharedPreferences = getSharedPreferences("inicio_sesion", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         Intent intent = null;
         if (verificarCampo(txtNombre, txtClave)) {
-            username = txtNombre.getText().toString();
-            password = txtClave.getText().toString();
-            user = usuarioDAO.findByUsernameAndPassword(username, password);
-            if (user != null) {
-                if (user.getRol().equals("administrador")) {
+            nombreUsuario = txtNombre.getText().toString();
+            clave = txtClave.getText().toString();
+            usuario = usuarioDAO.findByUsernameAndPassword(nombreUsuario, clave);
+            if (usuario != null) {
+                editor.putInt("id", usuario.id);
+                editor.putString("nombre_usuario", nombreUsuario);
+                editor.putString("clave", clave);
+                editor.putString("rol", usuario.getRol());
+                editor.apply();
+                if (usuario.getRol().equals("administrador")) {
                     intent = new Intent(this, AdminActivity.class);
                 } else {
                     ClienteDAO clienteDAO = db.clienteDAO();
 
                     //intent = new Intent(this, ClientActivity.class);
                 }
-                intent.putExtra(IDUSUARIO, user);
+                intent.putExtra(IDUSUARIO, usuario);
                 startActivity(intent);
                 finish();
             } else {
@@ -77,10 +86,6 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public void Salir()
-    {
-        finish();
-    }
     private boolean verificarCampo(EditText campo1, EditText campo2 ){
         boolean verificarCampo1=true, verificarCampo2=true;
 
