@@ -18,6 +18,7 @@ import proyecto.AsoDesUnidos.Controladores.Cliente.ClientActivity;
 import proyecto.AsoDesUnidos.DataAccessObjects.UsuarioDAO;
 import proyecto.AsoDesUnidos.Modelos.Usuario;
 import proyecto.AsoDesUnidos.R;
+import proyecto.AsoDesUnidos.Utiles.Utiles;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -59,8 +60,8 @@ public class LoginActivity extends AppCompatActivity {
         UsuarioDAO usuarioDAO = db.usuarioDAO();
         SharedPreferences sharedPreferences = getSharedPreferences("inicio_sesion", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        Intent intent = null;
-        if (verificarCampo(txtNombre, txtClave)) {
+        Intent intent;
+        if (verificarLogin()) {
             nombreUsuario = txtNombre.getText().toString();
             clave = txtClave.getText().toString();
             usuario = usuarioDAO.findByUsernameAndPassword(nombreUsuario, clave);
@@ -89,18 +90,8 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
-    private boolean verificarCampo(EditText campo1, EditText campo2 ){
-        boolean verificarCampo1=true, verificarCampo2=true;
-
-        if(campo1.getText().toString().isBlank()){
-            campo1.setError("El campo se encuentra vacío");
-           verificarCampo1=false;
-        }
-        if(campo2.getText().toString().isBlank()){
-            campo2.setError("El campo se encuentra vacío");
-            verificarCampo2=false;
-        }
-        return verificarCampo1 && verificarCampo2;
+    private boolean verificarLogin(){
+        return Utiles.verificarCampo(txtNombre, this) & Utiles.verificarCampo(txtClave, this);
     }
 
 }
