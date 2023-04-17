@@ -26,9 +26,8 @@ public class PrestamoAdapter extends RecyclerView.Adapter<PrestamoAdapter.Presta
     public PrestamoAdapter(Context context, List<Prestamo> prestamos) {
         this.context = context;
         this.prestamos = prestamos;
-
-
     }
+
     @NonNull
     @Override
     public PrestamoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -48,23 +47,27 @@ public class PrestamoAdapter extends RecyclerView.Adapter<PrestamoAdapter.Presta
         View dialogView = inflater.inflate(R.layout.pagar_prestamo, null);
         EditText editTextNMonto = dialogView.findViewById(R.id.editTextNMonto);
         Button btnPagoPrestamo = dialogView.findViewById(R.id.btnPagoPrestamo);
-
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-        alertDialogBuilder.setView(dialogView);
-        alertDialogBuilder.setTitle("Pagar préstamo");
-        alertDialogBuilder.setMessage("¿Desea pagar el préstamo " + prestamo.getId() + " ?");
-        alertDialogBuilder.setPositiveButton("Pagar", new DialogInterface.OnClickListener() {
+        holder.btnPagar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                // Aquí puedes implementar la lógica para pagar el préstamo
-                String montoStr = editTextNMonto.getText().toString();
-                double monto = Double.parseDouble(montoStr);
-                // ...
+            public void onClick(View v) {
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+                alertDialogBuilder.setView(dialogView);
+                alertDialogBuilder.setTitle("Pagar préstamo");
+                alertDialogBuilder.setMessage("¿Desea pagar el préstamo " + prestamo.getId() + " ?");
+                alertDialogBuilder.setPositiveButton("Pagar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        // Aquí puedes implementar la lógica para pagar el préstamo
+                        String montoStr = editTextNMonto.getText().toString();
+                        double monto = Double.parseDouble(montoStr);
+                        // ...
+                    }
+                });
+                alertDialogBuilder.setNegativeButton("Cancelar", null);
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
             }
         });
-        alertDialogBuilder.setNegativeButton("Cancelar", null);
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.show();
 
 
     }
@@ -79,7 +82,7 @@ public class PrestamoAdapter extends RecyclerView.Adapter<PrestamoAdapter.Presta
         public TextView txtMonto;
         public TextView txtInteres;
         public TextView txtTipo;
-
+        public Button btnPagar;
 
 
         public PrestamoViewHolder(View itemView) {
@@ -88,7 +91,7 @@ public class PrestamoAdapter extends RecyclerView.Adapter<PrestamoAdapter.Presta
             txtMontoTotal = itemView.findViewById(R.id.txtMontoTotal);
             txtInteres = itemView.findViewById(R.id.txtInteres);
             txtTipo = itemView.findViewById(R.id.txtTipo);
-
+            btnPagar = itemView.findViewById(R.id.btnPagar);
         }
     }
 }
