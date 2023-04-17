@@ -9,5 +9,11 @@
     <string name="agregar_cliente">Agregar Cliente</string>
     <string name="agregar_pr_stamo">Agregar Préstamo</string>
     <string name="cerrar_sesi_n">Cerrar Sesión</string>
-    <string name="mensaje_bienvenida">¡Bienvenido!</string>
+    <string name="agr_cli_conf_clave">Confirmar contraseña</string>
+    <string name="agr_cli_cedula">Cédula</string>
+    <string name="agr_cli_nombre">Nombre</string>
+    <string name="agr_cli_salario">Salario</string>
+    <string name="agr_cli_telefono">Teléfono</string>
+    <string name="agr_cli_fecNac">Fecha de nacmiento</string>
+    <string name="agr_cli_direccion">Dirección</string>
 </resources>
