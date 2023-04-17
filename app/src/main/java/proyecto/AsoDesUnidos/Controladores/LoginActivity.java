@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
         btnIngresar.setOnClickListener(view->Ingresar());
-        btnSalir.setOnClickListener(view->MainActivity.cerrarSesion(this));
+        btnSalir.setOnClickListener(view->salir());
 
 
         //Configurar botón de Ingresar segun rol
@@ -84,6 +84,10 @@ public class LoginActivity extends AppCompatActivity {
             }
 
         }
+    }
+
+    private void salir(){
+        finish();
     }
 
     private boolean verificarCampo(EditText campo1, EditText campo2 ){

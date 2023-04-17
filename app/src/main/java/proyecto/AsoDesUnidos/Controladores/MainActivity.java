@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -81,5 +82,13 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(activity, LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         activity.startActivity(intent);
+    }
+
+    public static void deseleccionarMenu(Menu menu){
+        menu.setGroupCheckable(0, true, false);
+        for(int i=0; i< menu.size(); i++){
+            menu.getItem(i).setChecked(false);
+        }
+        menu.setGroupCheckable(0, true, true);
     }
 }

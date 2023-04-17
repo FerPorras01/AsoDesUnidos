@@ -31,9 +31,8 @@ public class AdminActivity extends AppCompatActivity {
         AdminInicioFragment fragment = new AdminInicioFragment();
         fragment.setArguments(bundle);
         replaceFragment(fragment);
-
+        MainActivity.deseleccionarMenu(binding.bottomNavigationView.getMenu());
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
-
             switch (item.getItemId()){
                 case R.id.btnAgregarCliente:
                     replaceFragment(new AgregarClienteFragment());
@@ -49,6 +48,7 @@ public class AdminActivity extends AppCompatActivity {
             return true;
         });
     }
+
 
     private void replaceFragment(Fragment fragment){
 
