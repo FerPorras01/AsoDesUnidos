@@ -1,11 +1,16 @@
 package proyecto.AsoDesUnidos.Controladores.Cliente;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import java.util.List;
 import proyecto.AsoDesUnidos.BD.ConexionBaseDatos;
@@ -31,6 +36,11 @@ public class MisPrestamosFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private RecyclerView recyclerViewPrestamos;
+    private PrestamoAdapter adapter;
+    private List<Prestamo> listPrestamos;
+    private PrestamoDAO prestamoDAO;
+
 
     public MisPrestamosFragment() {
         // Required empty public constructor
@@ -67,22 +77,26 @@ public class MisPrestamosFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        int idCliente=getArguments().getInt(ClientActivity.idCliente);
+
         View view = inflater.inflate(R.layout.fragment_mis_prestamos, container, false);
-        ListView lViewPrestamos = view.findViewById(R.id.lViewPrestamos);
-        Prestamo[] prestamos;
+        recyclerViewPrestamos = view.findViewById(R.id.recyclerViewPrestamos);
+        recyclerViewPrestamos.setLayoutManager(new LinearLayoutManager(getActivity()));
+        listPrestamos= obtenerListaPrestamos();
+        adapter = new PrestamoAdapter(getActivity(), listPrestamos);
+        recyclerViewPrestamos.setAdapter(adapter);
+        return view;
+
+
+
+    }
+
+    private List<Prestamo> obtenerListaPrestamos() {
+        // Código para obtener la lista de préstamos del cliente
+        int idCliente = getArguments().getInt(ClientActivity.idCliente);
         ConexionBaseDatos db = Room.databaseBuilder(getActivity().getApplicationContext(),
                 ConexionBaseDatos.class, "database-name").allowMainThreadQueries().build();
-        PrestamoDAO prestamoDAO = db.prestamoDAO();
-        List<Prestamo> listPrestamos = prestamoDAO.findByClienteId(idCliente);
-        //ArrayAdapter<Prestamo> adapter = new ArrayAdapter<Prestamo>(this,
-                //android.R.layout.simple_list_item_1, android.R.id.text1, listPrestamos);
-       // lViewPrestamos.setAdapter(adapter);
+        prestamoDAO = db.prestamoDAO();
+        return listPrestamos= prestamoDAO.findByClienteId(idCliente);
 
-
-        //textView2 = view.findViewById(R.id.textView2);
-        //textView2.setText("¡Bienvenido, "+  nombreCliente+"!");
-        return view;
     }
 }

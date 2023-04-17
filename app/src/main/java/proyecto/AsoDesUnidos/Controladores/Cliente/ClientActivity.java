@@ -41,8 +41,7 @@ public class ClientActivity extends AppCompatActivity {
         ClienteInicioFragment fragment = new ClienteInicioFragment();
         fragment.setArguments(bundle);
         replaceFragment(fragment);
-        bundle.clear();
-        bundle.putInt(idCliente, cliente.id);
+
 
 
 

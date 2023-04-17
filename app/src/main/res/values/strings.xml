@@ -10,4 +10,11 @@
     <string name="btnCerrarSesion">Cerrar Sesión</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="monto">Monto</string>
+    <string name="interes">Interés</string>
+    <string name="duracion">Duración</string>
+    <string name="monto_total">Monto total</string>
+    <string name="monto_pagado">Monto pagado</string>
+    <string name="el_monto_a_pagar">Digite el monto a pagar</string>
+    <string name="tipo">Tipo</string>
 </resources>

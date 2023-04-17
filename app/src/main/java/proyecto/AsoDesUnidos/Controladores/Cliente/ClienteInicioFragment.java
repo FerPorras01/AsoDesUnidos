@@ -2,16 +2,13 @@ package proyecto.AsoDesUnidos.Controladores.Cliente;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import proyecto.AsoDesUnidos.Controladores.LoginActivity;
-import proyecto.AsoDesUnidos.Modelos.Usuario;
+import androidx.fragment.app.Fragment;
+
 import proyecto.AsoDesUnidos.R;
 
 /**
@@ -67,10 +64,18 @@ public class ClienteInicioFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        String nombreCliente=getArguments().getString(ClientActivity.nombreCliente);
-        View view = inflater.inflate(R.layout.fragment_cliente_inicio, container, false);
-        textView2 = view.findViewById(R.id.textView2);
-        textView2.setText("¡Bienvenido, "+  nombreCliente+"!");
-        return view;
+
+        Bundle args = getArguments();
+        if (args != null) {
+            String nombreCliente = args.getString(ClientActivity.nombreCliente);
+            if (nombreCliente != null) {
+                View view = inflater.inflate(R.layout.fragment_cliente_inicio, container, false);
+                textView2 = view.findViewById(R.id.textView2);
+                textView2.setText("¡Bienvenido, " + nombreCliente + "!");
+                //container.addView(view);
+                return view;
+            }
+        }
+      return null;
     }
 }
