@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
@@ -12,7 +13,7 @@ import java.time.LocalDate;
 import proyecto.AsoDesUnidos.BD.DateConverter;
 
 @TypeConverters(DateConverter.class)
-@Entity(foreignKeys = {@ForeignKey(entity = Usuario.class, parentColumns = "id", childColumns = "idUsuario")})
+@Entity(foreignKeys = {@ForeignKey(entity = Usuario.class, parentColumns = "id", childColumns = "idUsuario")}, indices = {@Index(value = {"idUsuario"}, unique = true)})
 public class Cliente {
     @NonNull
     @PrimaryKey(autoGenerate = true)

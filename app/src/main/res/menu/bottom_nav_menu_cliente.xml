@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/btnMisPrestamos"
+        android:icon="@drawable/ic_prestamos"
+        android:id="@+id/btnMisPrestamos"/>
+    <item android:title="@string/btnMisAhorros"
+        android:icon="@drawable/ic_ahorros"
+        android:id="@+id/btnMisAhorros"/>
+    <item android:title="@string/btnMisCalcCouta"
+        android:icon="@drawable/ic_calc_couta"
+        android:id="@+id/btnMisCalcCouta"/>
+    <item android:title="@string/btnCerrarSesion"
+        android:icon="@drawable/ic_cerrar_sesion"
+        android:id="@+id/btnCerrarSesion"/>
+</menu>
