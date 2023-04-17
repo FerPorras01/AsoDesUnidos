@@ -17,4 +17,10 @@
     <string name="monto_pagado">Monto pagado</string>
     <string name="el_monto_a_pagar">Digite el monto a pagar</string>
     <string name="tipo">Tipo</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="inicio_admin">Inicio Administrador</string>
+    <string name="agregar_cliente">Agregar Cliente</string>
+    <string name="agregar_pr_stamo">Agregar Préstamo</string>
+    <string name="cerrar_sesi_n">Cerrar Sesión</string>
+    <string name="mensaje_bienvenida">¡Bienvenido!</string>
 </resources>

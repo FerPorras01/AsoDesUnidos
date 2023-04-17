@@ -3,13 +3,17 @@ package proyecto.AsoDesUnidos.Controladores;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import proyecto.AsoDesUnidos.BD.ConexionBaseDatos;
+import proyecto.AsoDesUnidos.Controladores.Admin.AdminActivity;
+import proyecto.AsoDesUnidos.DataAccessObjects.ClienteDAO;
 import proyecto.AsoDesUnidos.Controladores.Cliente.ClientActivity;
 import proyecto.AsoDesUnidos.DataAccessObjects.UsuarioDAO;
 import proyecto.AsoDesUnidos.Modelos.Usuario;
@@ -20,11 +24,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText txtNombre;
     private EditText txtClave;
-    private Button btnIngresar;
-    private Button btnSalir;
-    private UsuarioDAO usuarioDAO;
-
-    public static final String IDUSUARIO = "Cliente.idUsuario";
+    public static final String IDUSUARIO = "Login.idUsuario";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +32,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         txtNombre = findViewById(R.id.txtNombre);
         txtClave = findViewById(R.id.txtClave);
-        btnIngresar = findViewById(R.id.btnIngresar);
-        btnSalir = findViewById(R.id.btnSalir);
+        Button btnIngresar = findViewById(R.id.btnIngresar);
+        Button btnSalir = findViewById(R.id.btnSalir);
 
 
         //inicializacion de BD.
@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
         btnIngresar.setOnClickListener(view->Ingresar());
-        btnSalir.setOnClickListener(view->Salir());
+        btnSalir.setOnClickListener(view->salir());
 
 
         //Configurar botón de Ingresar segun rol
@@ -53,23 +53,29 @@ public class LoginActivity extends AppCompatActivity {
     public void Ingresar() {
         ConexionBaseDatos db = Room.databaseBuilder(getApplicationContext(),
                 ConexionBaseDatos.class, "database-name").allowMainThreadQueries().build();
-        String username;
-        String password;
-        usuarioDAO = db.usuarioDAO();
-        Usuario user;
-        Intent intent=null;
+        String nombreUsuario;
+        String clave;
+        Usuario usuario;
+        UsuarioDAO usuarioDAO = db.usuarioDAO();
+        SharedPreferences sharedPreferences = getSharedPreferences("inicio_sesion", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Intent intent = null;
         if (verificarCampo(txtNombre, txtClave)) {
-            username = txtNombre.getText().toString();
-            password = txtClave.getText().toString();
-            user = usuarioDAO.findByUsernameAndPassword(username, password);
-            if (user != null) {
-                if (user.getRol().equals("administrador")) {
+            nombreUsuario = txtNombre.getText().toString();
+            clave = txtClave.getText().toString();
+            usuario = usuarioDAO.findByUsernameAndPassword(nombreUsuario, clave);
+            if (usuario != null) {
+                editor.putInt("id", usuario.id);
+                editor.putString("nombre_usuario", nombreUsuario);
+                editor.putString("clave", clave);
+                editor.putString("rol", usuario.getRol());
+                editor.apply();
+                if (usuario.getRol().equals("administrador")) {
                     intent = new Intent(this, AdminActivity.class);
-                    //intent.putExtra(NOMBREUSUARIO, username);
                 } else {
                     intent = new Intent(this, ClientActivity.class);
-                    intent.putExtra(IDUSUARIO, user.id);
                 }
+                intent.putExtra(IDUSUARIO, usuario);
                 startActivity(intent);
                 finish();
             } else {
@@ -79,11 +85,10 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public void Salir()
-    {
-
+    private void salir(){
         finish();
     }
+
     private boolean verificarCampo(EditText campo1, EditText campo2 ){
         boolean verificarCampo1=true, verificarCampo2=true;
 
