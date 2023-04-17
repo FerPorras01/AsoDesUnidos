@@ -15,7 +15,7 @@
             android:name=".Controladores.Cliente.ClientActivity"
             android:exported="false" />
         <activity
-            android:name=".Controladores.AdminActivity"
+            android:name=".Controladores.Admin.AdminActivity"
             android:exported="false" />
         <activity
             android:name=".Controladores.LoginActivity"

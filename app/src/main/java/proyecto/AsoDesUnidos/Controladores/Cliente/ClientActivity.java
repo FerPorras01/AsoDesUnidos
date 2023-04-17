@@ -13,6 +13,7 @@ import java.io.Serializable;
 
 import proyecto.AsoDesUnidos.BD.ConexionBaseDatos;
 import proyecto.AsoDesUnidos.Controladores.LoginActivity;
+import proyecto.AsoDesUnidos.Controladores.MainActivity;
 import proyecto.AsoDesUnidos.DataAccessObjects.ClienteDAO;
 import proyecto.AsoDesUnidos.DataAccessObjects.UsuarioDAO;
 import proyecto.AsoDesUnidos.Modelos.Cliente;
@@ -30,11 +31,11 @@ public class ClientActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityClientBinding.inflate(getLayoutInflater());
         Intent intent = getIntent();
-        int idUsuario=intent.getIntExtra(LoginActivity.IDUSUARIO,-1);
+        Usuario usuario= (Usuario)intent.getSerializableExtra(LoginActivity.IDUSUARIO);
         ConexionBaseDatos db = Room.databaseBuilder(getApplicationContext(),
                 ConexionBaseDatos.class, "database-name").allowMainThreadQueries().build();
         ClienteDAO clienteDAO = db.clienteDAO();
-        Cliente cliente=clienteDAO.getClienteByIdUsuario(idUsuario);
+        Cliente cliente=clienteDAO.getClienteByIdUsuario(usuario.id);
         Bundle bundle = new Bundle();
         bundle.putString(nombreCliente, cliente.nombre);
         setContentView(binding.getRoot());
@@ -60,7 +61,7 @@ public class ClientActivity extends AppCompatActivity {
                     replaceFragment(new CalculoCuotaFragment());
                     break;
                 case R.id.btnCerrarSesion:
-                    finish();
+                    MainActivity.cerrarSesion(this);
                     break;
             }
 
