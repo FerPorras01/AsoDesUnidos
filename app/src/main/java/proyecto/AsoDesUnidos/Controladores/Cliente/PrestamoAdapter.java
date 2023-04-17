@@ -47,24 +47,26 @@ public class PrestamoAdapter extends RecyclerView.Adapter<PrestamoAdapter.Presta
         View dialogView = inflater.inflate(R.layout.pagar_prestamo, null);
         EditText editTextNMonto = dialogView.findViewById(R.id.editTextNMonto);
         Button btnPagoPrestamo = dialogView.findViewById(R.id.btnPagoPrestamo);
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+        alertDialogBuilder.setView(dialogView);
+        alertDialogBuilder.setTitle("Pagar préstamo");
+        alertDialogBuilder.setMessage("¿Desea pagar el préstamo " + prestamo.getId() + " ?");
+        alertDialogBuilder.setPositiveButton("Pagar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                // Aquí puedes implementar la lógica para pagar el préstamo
+                String montoStr = editTextNMonto.getText().toString();
+                double monto = Double.parseDouble(montoStr);
+                // ...
+            }
+        });
+        alertDialogBuilder.setNegativeButton("Cancelar", null);
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
         holder.btnPagar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-                alertDialogBuilder.setView(dialogView);
-                alertDialogBuilder.setTitle("Pagar préstamo");
-                alertDialogBuilder.setMessage("¿Desea pagar el préstamo " + prestamo.getId() + " ?");
-                alertDialogBuilder.setPositiveButton("Pagar", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        // Aquí puedes implementar la lógica para pagar el préstamo
-                        String montoStr = editTextNMonto.getText().toString();
-                        double monto = Double.parseDouble(montoStr);
-                        // ...
-                    }
-                });
-                alertDialogBuilder.setNegativeButton("Cancelar", null);
-                AlertDialog alertDialog = alertDialogBuilder.create();
                 alertDialog.show();
             }
         });
