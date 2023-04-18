@@ -22,7 +22,7 @@ public interface PrestamoDAO {
     void delete(Prestamo... prestamos);
 
     @Update
-    void updatePrestamos(Prestamo...prestamos);
+    void updatePrestamos(Prestamo...prestamo);
 
     @Query("SELECT * FROM prestamo")
     Prestamo[] loadAllPrestamo();

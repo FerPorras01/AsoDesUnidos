@@ -27,11 +27,14 @@ public class Ahorro {
     @ColumnInfo(name = "totalAhorrado")
     public Double totalAhorrado;
 
-    public Ahorro(int idCliente, Double monto, String tipo, Double totalAhorrado){
+    @ColumnInfo(name = "estado")
+    public Boolean estado;
+    public Ahorro(int idCliente, Double monto, String tipo, Double totalAhorrado, Boolean estado){
         this.idCliente=idCliente;
         this.monto=monto;
         this.tipo=tipo;
         this.totalAhorrado=totalAhorrado;
+        this.estado=estado;
     }
 
 }

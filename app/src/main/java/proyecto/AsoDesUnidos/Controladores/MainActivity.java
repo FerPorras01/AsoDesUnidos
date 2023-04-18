@@ -67,12 +67,12 @@ public class MainActivity extends AppCompatActivity {
         Cliente fer= new Cliente(3, "402450321", "Fernanda", 555.000, "8546-5164", LocalDate.of(2001,2,10),"Soltero", "400 metros oeste del parque de San Pedro");
 
 
-        Prestamo pre1=new Prestamo(1,0.0,"Personal", 10, LocalDate.of(2010,05,01));
-        Prestamo pre2=new Prestamo(1,0.0,"Educacion", 8, LocalDate.of(2010,05,01));
+        Prestamo pre1=new Prestamo(1,20000.0, (20000.0*0.1)+20000,"Personal", (float) 0.10, (5));
+        Prestamo pre2=new Prestamo(1,100000.0,(100000.0*0.08)+100000,"Educacion", (float) 0.08, 10);
 
-        //db.usuarioDAO().insertAll(usuario1, usuario2, usuario3);
-        //db.clienteDAO().insertAll(mario, maria, fer);
-        //db.prestamoDAO().insertAll(pre1, pre2);
+        /*db.usuarioDAO().insertAll(usuario1, usuario2, usuario3);
+        db.clienteDAO().insertAll(mario, maria, fer);
+        db.prestamoDAO().insertAll(pre1, pre2);*/
 
         List<Cliente> clienteList=db.clienteDAO().getAllClientes();
         List<Usuario> usuarioList=db.usuarioDAO().getAllUsuarios();
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d("Cliente", list.cedula + " " + list.nombre + " " + list.salario + " " + list.telefono + " " + list.fecNac + " " + list.estCivil + " " + list.direccion);
         }
         for(Prestamo list: prestamoList){
-            Log.d("Prestamo", list.monto + " " + list.tipo + " " + list.interes + " " + list.periodo);
+            Log.d("Prestamo", list.monto + " " + list.montoTotal + " " + list.tipo + " " + list.interes + " " + list.periodo);
         }
 
 

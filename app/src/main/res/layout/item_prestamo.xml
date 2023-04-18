@@ -7,90 +7,170 @@
 
     <LinearLayout
         android:id="@+id/layoutItem"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="401dp"
+        android:layout_height="78dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="5dp"
+        android:background="#f1c9a0"
         android:orientation="vertical"
+        android:radius="20dp"
+        app:cardElevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.092"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="89dp"
+            android:overScrollMode="ifContentScrolls">
+
+            <Button
+                android:id="@+id/btnPagar"
+                android:layout_width="95dp"
+                android:layout_height="48dp"
+                android:text="@string/pagar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.949"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.716" />
 
             <TextView
                 android:id="@+id/txtTipo"
-                android:layout_width="140dp"
-                android:layout_height="32dp"
-                android:layout_marginBottom="84dp"
+                android:layout_width="54dp"
+                android:layout_height="20dp"
                 android:text="@string/tipo"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:textColor="#6D4C41"
+                app:layout_constraintBottom_toBottomOf="@+id/tipo"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtInteres"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintHorizontal_bias="0.036"
+                app:layout_constraintStart_toEndOf="@+id/tipo" />
 
             <TextView
-                android:id="@+id/txtMontoTotal"
-                android:layout_width="141dp"
-                android:layout_height="37dp"
-                android:text="@string/monto_total"
+                android:id="@+id/txtPeriodo"
+                android:layout_width="58dp"
+                android:layout_height="22dp"
+                android:text="@string/periodo"
+                android:textColor="#6D4C41"
+                app:layout_constraintBottom_toBottomOf="@+id/periodo"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtDuracion" />
-
-            <TextView
-                android:id="@+id/txtDuracion"
-                android:layout_width="141dp"
-                android:layout_height="31dp"
-                android:layout_marginBottom="24dp"
-                android:text="@string/duracion"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtTipo"
+                app:layout_constraintHorizontal_bias="0.692"
+                app:layout_constraintStart_toEndOf="@+id/periodo"
+                app:layout_constraintTop_toTopOf="@+id/periodo"
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/txtInteres"
-                android:layout_width="140dp"
-                android:layout_height="34dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="268dp"
                 android:text="@string/interes"
+                android:textColor="#6D4C41"
+                app:layout_constraintBottom_toBottomOf="@+id/interes"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtMonto" />
+                app:layout_constraintHorizontal_bias="0.838"
+                app:layout_constraintStart_toEndOf="@+id/interes"
+                app:layout_constraintTop_toBottomOf="@+id/monto"
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="TextSizeCheck" />
 
             <TextView
                 android:id="@+id/txtMonto"
-                android:layout_width="140dp"
-                android:layout_height="39dp"
-                android:text="@string/monto"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <Button
-                android:id="@+id/btnPagar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pagar"
+                android:layout_marginStart="28dp"
+                android:text="@string/monto"
+                android:textColor="#6D4C41"
+                app:layout_constraintBottom_toBottomOf="@+id/monto"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/monto"
+                app:layout_constraintTop_toTopOf="@+id/monto"
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="TextSizeCheck" />
+
+            <TextView
+                android:id="@+id/monto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monto"
+                android:textColor="#6D4C41"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.588"
+                app:layout_constraintHorizontal_bias="0.044"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.92" />
+                app:layout_constraintVertical_bias="0.271" />
+
+            <TextView
+                android:id="@+id/interes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Interes"
+                android:textColor="#6D4C41"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.045"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/monto"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/periodo"
+                android:layout_width="64dp"
+                android:layout_height="23dp"
+                android:text="Periodo"
+                android:textColor="#6D4C41"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.795"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.174" />
+
+            <TextView
+                android:id="@+id/tipo"
+                android:layout_width="31dp"
+                android:layout_height="19dp"
+                android:text="Tipo"
+                android:textColor="#6D4C41"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.389"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.271" />
+
+            <TextView
+                android:id="@+id/montoTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monto total"
+                android:textColor="#6D4C41"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.437"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.593" />
+
+            <TextView
+                android:id="@+id/txtMontoTotal"
+                android:layout_width="46dp"
+                android:layout_height="19dp"
+                android:text="@string/monto_total"
+                android:textColor="#6D4C41"
+                app:layout_constraintBottom_toBottomOf="@+id/montoTotal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.055"
+                app:layout_constraintStart_toEndOf="@+id/montoTotal"
+                app:layout_constraintTop_toTopOf="@+id/montoTotal"
+                app:layout_constraintVertical_bias="0.0" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
