@@ -70,9 +70,9 @@ public class MainActivity extends AppCompatActivity {
         Prestamo pre1=new Prestamo(1,20000.0, (20000.0*0.1)+20000,"Personal", (float) 0.10, (5));
         Prestamo pre2=new Prestamo(1,100000.0,(100000.0*0.08)+100000,"Educacion", (float) 0.08, 10);
 
-        /*db.usuarioDAO().insertAll(usuario1, usuario2, usuario3);
-        db.clienteDAO().insertAll(mario, maria, fer);
-        db.prestamoDAO().insertAll(pre1, pre2);*/
+       // db.usuarioDAO().insertAll(usuario1, usuario2, usuario3);
+        //db.clienteDAO().insertAll(mario, maria, fer);
+        //db.prestamoDAO().insertAll(pre1, pre2);
 
         List<Cliente> clienteList=db.clienteDAO().getAllClientes();
         List<Usuario> usuarioList=db.usuarioDAO().getAllUsuarios();

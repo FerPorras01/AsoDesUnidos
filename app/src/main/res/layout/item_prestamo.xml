@@ -24,41 +24,44 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="89dp"
+            android:layout_height="match_parent"
             android:overScrollMode="ifContentScrolls">
 
             <Button
                 android:id="@+id/btnPagar"
-                android:layout_width="95dp"
-                android:layout_height="48dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@string/pagar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.949"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.716" />
+                app:layout_constraintHorizontal_bias="0.719"
+                app:layout_constraintStart_toEndOf="@+id/txtMontoTotal"
+                app:layout_constraintTop_toBottomOf="@+id/periodo" />
 
             <TextView
                 android:id="@+id/txtTipo"
-                android:layout_width="54dp"
-                android:layout_height="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
                 android:text="@string/tipo"
                 android:textColor="#6D4C41"
                 app:layout_constraintBottom_toBottomOf="@+id/tipo"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.036"
-                app:layout_constraintStart_toEndOf="@+id/tipo" />
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/tipo"
+                app:layout_constraintTop_toTopOf="@+id/tipo"
+                app:layout_constraintVertical_bias="0.777" />
 
             <TextView
                 android:id="@+id/txtPeriodo"
-                android:layout_width="58dp"
-                android:layout_height="22dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@string/periodo"
                 android:textColor="#6D4C41"
                 app:layout_constraintBottom_toBottomOf="@+id/periodo"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.692"
+                app:layout_constraintHorizontal_bias="0.384"
                 app:layout_constraintStart_toEndOf="@+id/periodo"
                 app:layout_constraintTop_toTopOf="@+id/periodo"
                 app:layout_constraintVertical_bias="0.0" />
@@ -67,27 +70,26 @@
                 android:id="@+id/txtInteres"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="268dp"
+                android:layout_marginStart="7dp"
+                android:layout_marginEnd="292dp"
                 android:text="@string/interes"
                 android:textColor="#6D4C41"
                 app:layout_constraintBottom_toBottomOf="@+id/interes"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.838"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/interes"
-                app:layout_constraintTop_toBottomOf="@+id/monto"
-                app:layout_constraintVertical_bias="0.0"
+                app:layout_constraintTop_toTopOf="@+id/interes"
                 tools:ignore="TextSizeCheck" />
 
             <TextView
                 android:id="@+id/txtMonto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
                 android:text="@string/monto"
                 android:textColor="#6D4C41"
                 app:layout_constraintBottom_toBottomOf="@+id/monto"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.033"
                 app:layout_constraintStart_toEndOf="@+id/monto"
                 app:layout_constraintTop_toTopOf="@+id/monto"
                 app:layout_constraintVertical_bias="0.0"
@@ -95,78 +97,80 @@
 
             <TextView
                 android:id="@+id/monto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="45dp"
+                android:layout_height="18dp"
                 android:text="Monto"
                 android:textColor="#6D4C41"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.044"
+                app:layout_constraintHorizontal_bias="0.039"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.271" />
+                app:layout_constraintVertical_bias="0.116" />
 
             <TextView
                 android:id="@+id/interes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 android:text="Interes"
                 android:textColor="#6D4C41"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.045"
+                app:layout_constraintHorizontal_bias="0.044"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/monto"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toBottomOf="@+id/monto" />
 
             <TextView
                 android:id="@+id/periodo"
-                android:layout_width="64dp"
-                android:layout_height="23dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="76dp"
                 android:text="Periodo"
                 android:textColor="#6D4C41"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/txtTipo"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.795"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.174" />
+                app:layout_constraintHorizontal_bias="0.658"
+                app:layout_constraintStart_toEndOf="@+id/txtTipo"
+                app:layout_constraintTop_toTopOf="@+id/txtTipo"
+                app:layout_constraintVertical_bias="1.0" />
 
             <TextView
                 android:id="@+id/tipo"
-                android:layout_width="31dp"
+                android:layout_width="wrap_content"
                 android:layout_height="19dp"
+                android:layout_marginEnd="232dp"
                 android:text="Tipo"
                 android:textColor="#6D4C41"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/txtMonto"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.389"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.271" />
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/txtMonto"
+                app:layout_constraintTop_toTopOf="@+id/txtMonto"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/montoTotal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="164dp"
                 android:text="Monto total"
                 android:textColor="#6D4C41"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/txtInteres"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.437"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.593" />
+                app:layout_constraintHorizontal_bias="0.25"
+                app:layout_constraintStart_toEndOf="@+id/txtInteres"
+                app:layout_constraintTop_toTopOf="@+id/txtInteres" />
 
             <TextView
                 android:id="@+id/txtMontoTotal"
-                android:layout_width="46dp"
-                android:layout_height="19dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@string/monto_total"
                 android:textColor="#6D4C41"
                 app:layout_constraintBottom_toBottomOf="@+id/montoTotal"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.055"
+                app:layout_constraintHorizontal_bias="0.05"
                 app:layout_constraintStart_toEndOf="@+id/montoTotal"
                 app:layout_constraintTop_toTopOf="@+id/montoTotal"
                 app:layout_constraintVertical_bias="0.0" />
