@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public static void cerrarSesion(Activity activity){
+        activity.finish();
         activity.getSharedPreferences("inicio_sesion", Context.MODE_PRIVATE).edit().clear().apply();
         Intent intent = new Intent(activity, LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
