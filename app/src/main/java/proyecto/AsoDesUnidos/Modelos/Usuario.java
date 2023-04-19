@@ -3,12 +3,13 @@ package proyecto.AsoDesUnidos.Modelos;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
-@Entity
+@Entity(indices = {@Index(value = {"nombre"}, unique = true)})
 public class Usuario implements Serializable {
     @NonNull
     @PrimaryKey(autoGenerate = true)

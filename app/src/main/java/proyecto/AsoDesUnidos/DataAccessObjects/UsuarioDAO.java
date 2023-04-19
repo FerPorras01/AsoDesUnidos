@@ -17,7 +17,7 @@ public interface UsuarioDAO {
     List<Usuario> getAllUsuarios();
 
     @Insert
-    void insertUser(Usuario usuario);
+    long insertUser(Usuario usuario);
 
     @Query("SELECT * FROM usuario WHERE nombre = :username AND clave= :password")
     Usuario findByUsernameAndPassword(String username, String password);

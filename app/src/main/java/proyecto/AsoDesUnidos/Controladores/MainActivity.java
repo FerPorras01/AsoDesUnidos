@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.Window;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -61,18 +62,19 @@ public class MainActivity extends AppCompatActivity {
         Usuario usuario1= new Usuario("mario12", "jsjsjdjsha22*","cliente");
         Usuario usuario2= new Usuario("maria89", "jsjsjdooha28*","cliente");
         Usuario usuario3= new Usuario("fernanda18", "jueyeubcdf18+","administrador");
+        Usuario usuario4= new Usuario("sebasAd", "sebas1205", "administrador");
 
         Cliente mario= new Cliente(1,"402450378", "Mario", 255.000, "7667-5665", LocalDate.of(2010,5,1),"soltero", "400 metros oeste del HSVP");
         Cliente maria= new Cliente(2, "402450320", "Maria", 355.000, "7688-5665", LocalDate.of(2000,2,10),"Soltero", "300 metros oeste del HSVP");
-        Cliente fer= new Cliente(3, "402450321", "Fernanda", 555.000, "8546-5164", LocalDate.of(2001,2,10),"Soltero", "400 metros oeste del parque de San Pedro");
+        //Cliente fer= new Cliente(3, "402450321", "Fernanda", 555.000, "8546-5164", LocalDate.of(2001,2,10),"Soltero", "400 metros oeste del parque de San Pedro");
 
 
         Prestamo pre1=new Prestamo(1,0.0,"Personal", 10, LocalDate.of(2010,05,01));
         Prestamo pre2=new Prestamo(1,0.0,"Educacion", 8, LocalDate.of(2010,05,01));
 
-        //db.usuarioDAO().insertAll(usuario1, usuario2, usuario3);
-        //db.clienteDAO().insertAll(mario, maria, fer);
-        //db.prestamoDAO().insertAll(pre1, pre2);
+        /*db.usuarioDAO().insertAll(usuario1, usuario2, usuario3, usuario4);
+        db.clienteDAO().insertAll(mario, maria);
+        db.prestamoDAO().insertAll(pre1, pre2);*/
 
         List<Cliente> clienteList=db.clienteDAO().getAllClientes();
         List<Usuario> usuarioList=db.usuarioDAO().getAllUsuarios();
@@ -92,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public static void cerrarSesion(Activity activity){
+        activity.finish();
         activity.getSharedPreferences("inicio_sesion", Context.MODE_PRIVATE).edit().clear().apply();
         Intent intent = new Intent(activity, LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);

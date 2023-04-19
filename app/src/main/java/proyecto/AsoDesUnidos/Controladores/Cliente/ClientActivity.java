@@ -19,17 +19,17 @@ import proyecto.AsoDesUnidos.DataAccessObjects.UsuarioDAO;
 import proyecto.AsoDesUnidos.Modelos.Cliente;
 import proyecto.AsoDesUnidos.Modelos.Usuario;
 import proyecto.AsoDesUnidos.R;
-import proyecto.AsoDesUnidos.databinding.ActivityClientBinding;
+import proyecto.AsoDesUnidos.databinding.ActivityClienteBinding;
 
 public class ClientActivity extends AppCompatActivity {
 
-    ActivityClientBinding binding;
+    ActivityClienteBinding binding;
     public static final String nombreCliente="Cliente.nombreCliente";
     public static final String idCliente= "Cliente.idCliente";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityClientBinding.inflate(getLayoutInflater());
+        binding = ActivityClienteBinding.inflate(getLayoutInflater());
         Intent intent = getIntent();
         Usuario usuario= (Usuario)intent.getSerializableExtra(LoginActivity.IDUSUARIO);
         ConexionBaseDatos db = Room.databaseBuilder(getApplicationContext(),

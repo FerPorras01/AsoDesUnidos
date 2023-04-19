@@ -73,8 +73,4 @@ public class AdminInicioFragment extends Fragment {
         textView2.setText("¡Bienvenido, "+ nombreUsuario.nombre +"!");
         return view;
     }
-
-    private void AgregarCliente(){
-
-    }
 }

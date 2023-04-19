@@ -19,6 +19,8 @@ public interface ClienteDAO {
     @Query("SELECT * FROM cliente")
     List<Cliente> getAllClientes();
 
+    @Insert
+    long insertarCliente(Cliente cliente);
     @Delete
     void delete(Cliente... clientes);
 

@@ -33,13 +33,14 @@
                 app:layout_constraintVertical_bias="0.02" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName"
+                android:id="@+id/txtAgrNomUsuario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:width="300dp"
                 android:ems="10"
                 android:hint="@string/txtNombre"
+                android:importantForAutofill="no"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -47,42 +48,41 @@
                 app:layout_constraintHorizontal_bias="0.455"
                 app:layout_constraintStart_toStartOf="@+id/textView"
                 app:layout_constraintTop_toBottomOf="@+id/textView"
-                app:layout_constraintVertical_bias="0.03"
-                android:importantForAutofill="no" />
+                app:layout_constraintVertical_bias="0.03" />
 
             <EditText
-                android:id="@+id/editTextTextPassword"
+                android:id="@+id/txtAgrClave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="300dp"
                 android:ems="10"
                 android:hint="@string/txtClave"
+                android:importantForAutofill="no"
                 android:inputType="textPassword"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/txtAgrNomUsuario"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
-                app:layout_constraintVertical_bias="0.03"
-                android:importantForAutofill="no" />
+                app:layout_constraintStart_toStartOf="@+id/txtAgrNomUsuario"
+                app:layout_constraintTop_toBottomOf="@+id/txtAgrNomUsuario"
+                app:layout_constraintVertical_bias="0.03" />
 
             <EditText
-                android:id="@+id/editTextTextPassword2"
+                android:id="@+id/txtAgrConfirmarClave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="300dp"
                 android:ems="10"
                 android:hint="@string/agr_cli_conf_clave"
+                android:importantForAutofill="no"
                 android:inputType="textPassword"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
+                app:layout_constraintEnd_toEndOf="@+id/txtAgrClave"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
-                app:layout_constraintVertical_bias="0.03"
-                android:importantForAutofill="no" />
+                app:layout_constraintStart_toStartOf="@+id/txtAgrClave"
+                app:layout_constraintTop_toBottomOf="@+id/txtAgrClave"
+                app:layout_constraintVertical_bias="0.03" />
 
             <EditText
                 android:id="@+id/txtAgrCedula"
@@ -93,12 +93,14 @@
                 android:ems="10"
                 android:hint="@string/agr_cli_cedula"
                 android:inputType="number"
+                android:maxLength="9"
+
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword2"
+                app:layout_constraintEnd_toEndOf="@+id/txtAgrConfirmarClave"
                 app:layout_constraintHorizontal_bias="0.455"
-                app:layout_constraintStart_toStartOf="@+id/editTextTextPassword2"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2"
+                app:layout_constraintStart_toStartOf="@+id/txtAgrConfirmarClave"
+                app:layout_constraintTop_toBottomOf="@+id/txtAgrConfirmarClave"
                 app:layout_constraintVertical_bias="0.03" />
 
             <EditText
@@ -144,6 +146,7 @@
                 android:ems="10"
                 android:hint="@string/agr_cli_telefono"
                 android:inputType="number"
+                android:maxLength="8"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/txtAgrSalario"

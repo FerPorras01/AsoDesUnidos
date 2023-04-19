@@ -91,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private boolean verificarLogin(){
-        return Utiles.verificarCampo(txtNombre, this) & Utiles.verificarCampo(txtClave, this);
+        return Utiles.verificarCampo(txtNombre) & Utiles.verificarCampo(txtClave);
     }
 
 }

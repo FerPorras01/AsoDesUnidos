@@ -16,8 +16,9 @@ public class Ahorro {
     @NonNull
     @PrimaryKey(autoGenerate = true)
     public int id;
-    @ColumnInfo(name = "idCliente")
+    @ColumnInfo(name = "idCliente", index = true)
     public int idCliente;
+
     @ColumnInfo(name = "monto")
     public Double monto;
 
