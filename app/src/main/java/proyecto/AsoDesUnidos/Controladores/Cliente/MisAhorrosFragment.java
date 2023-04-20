@@ -1,13 +1,22 @@
 package proyecto.AsoDesUnidos.Controladores.Cliente;
 
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.List;
+
+import proyecto.AsoDesUnidos.BD.ConexionBaseDatos;
+import proyecto.AsoDesUnidos.DataAccessObjects.AhorroDAO;
+import proyecto.AsoDesUnidos.DataAccessObjects.PrestamoDAO;
+import proyecto.AsoDesUnidos.Modelos.Ahorro;
+import proyecto.AsoDesUnidos.Modelos.Prestamo;
 import proyecto.AsoDesUnidos.R;
 
 /**
@@ -15,7 +24,7 @@ import proyecto.AsoDesUnidos.R;
  * Use the {@link MisAhorrosFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MisAhorrosFragment extends Fragment {
+public class  MisAhorrosFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,6 +34,10 @@ public class MisAhorrosFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private RecyclerView recyclerViewAhorros;
+    private AhorroAdapter adapter;
+    private List<Ahorro> listAhorro;
+    private AhorroDAO ahorroDAO;
 
     public MisAhorrosFragment() {
         // Required empty public constructor
@@ -61,6 +74,20 @@ public class MisAhorrosFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mis_ahorros, container, false);
+        View view=  inflater.inflate(R.layout.fragment_mis_ahorros, container, false);
+        recyclerViewAhorros = view.findViewById(R.id.recyclerViewAhorros);
+        recyclerViewAhorros.setLayoutManager(new LinearLayoutManager(getActivity()));
+        listAhorro= obtenerListaAhorros();
+        adapter = new AhorroAdapter(getActivity(), listAhorro);
+        recyclerViewAhorros.setAdapter(adapter);
+        return view;
+    }
+   private List<Ahorro> obtenerListaAhorros() {
+        int idCliente = getArguments().getInt(ClientActivity.idCliente);
+        ConexionBaseDatos db = Room.databaseBuilder(getActivity().getApplicationContext(),
+                ConexionBaseDatos.class, "database-name").allowMainThreadQueries().build();
+        ahorroDAO = db.ahorroDAO();
+        return listAhorro= ahorroDAO.findByClienteId(idCliente);
+
     }
 }

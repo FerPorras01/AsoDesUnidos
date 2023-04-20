@@ -24,4 +24,9 @@
     <string name="cerrar_sesi_n">Cerrar Sesión</string>
     <string name="mensaje_bienvenida">¡Bienvenido!</string>
     <string name="pagar">Pagar</string>
+    <string name="activar">Activar</string>
+    <string name="cuota">Cuota</string>
+    <string name="cuotaA">Cuota</string>
+    <string name="monto_ahorrado">Monto ahorrado</string>
+    <string name="tipoA">Navideño</string>
 </resources>

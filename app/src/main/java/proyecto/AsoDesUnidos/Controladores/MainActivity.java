@@ -16,6 +16,7 @@ import java.util.List;
 import proyecto.AsoDesUnidos.BD.ConexionBaseDatos;
 import proyecto.AsoDesUnidos.Controladores.Admin.AdminActivity;
 import proyecto.AsoDesUnidos.Controladores.Cliente.ClientActivity;
+import proyecto.AsoDesUnidos.Modelos.Ahorro;
 import proyecto.AsoDesUnidos.Modelos.Cliente;
 import proyecto.AsoDesUnidos.Modelos.Prestamo;
 import proyecto.AsoDesUnidos.Modelos.Usuario;
@@ -70,9 +71,15 @@ public class MainActivity extends AppCompatActivity {
         Prestamo pre1=new Prestamo(1,20000.0, (20000.0*0.1)+20000,"Personal", (float) 0.10, (5));
         Prestamo pre2=new Prestamo(1,100000.0,(100000.0*0.08)+100000,"Educacion", (float) 0.08, 10);
 
-       // db.usuarioDAO().insertAll(usuario1, usuario2, usuario3);
-        //db.clienteDAO().insertAll(mario, maria, fer);
-        //db.prestamoDAO().insertAll(pre1, pre2);
+        Ahorro aho1 = new Ahorro(1,0.0,"Navideño",10000.0, true);
+        Ahorro aho2 = new Ahorro(1,0.0,"Escolar",20000.0, true);
+        Ahorro aho3 = new Ahorro(1,0.0,"Marchamo",30000.0, true);
+        Ahorro aho4 = new Ahorro(1,0.0,"Extraordinario",40000.0, true);
+
+        /*db.usuarioDAO().insertAll(usuario1, usuario2, usuario3);
+        db.clienteDAO().insertAll(mario, maria, fer);
+        db.prestamoDAO().insertAll(pre1, pre2);
+        db.ahorroDAO().insertAll(aho1, aho2, aho3, aho4);*/
 
         List<Cliente> clienteList=db.clienteDAO().getAllClientes();
         List<Usuario> usuarioList=db.usuarioDAO().getAllUsuarios();

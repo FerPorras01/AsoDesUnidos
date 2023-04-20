@@ -10,6 +10,7 @@ import androidx.room.Update;
 import java.util.List;
 
 import proyecto.AsoDesUnidos.Modelos.Ahorro;
+import proyecto.AsoDesUnidos.Modelos.Prestamo;
 
 @Dao
 public interface AhorroDAO {
@@ -27,4 +28,7 @@ public interface AhorroDAO {
 
     @Query("SELECT * FROM ahorro")
     public Ahorro[] loadAllAhorros();
+
+    @Query("SELECT * FROM ahorro WHERE idCliente = :clienteId")
+    List<Ahorro> findByClienteId(int clienteId);
 }
