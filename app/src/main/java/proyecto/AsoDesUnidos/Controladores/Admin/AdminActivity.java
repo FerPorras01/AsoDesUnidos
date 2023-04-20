@@ -8,7 +8,6 @@ import androidx.fragment.app.FragmentTransaction;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Window;
 
 import proyecto.AsoDesUnidos.Controladores.LoginActivity;
 import proyecto.AsoDesUnidos.Controladores.MainActivity;
