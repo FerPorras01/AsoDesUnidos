@@ -16,7 +16,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/tvTitutlo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="300dp"
@@ -33,7 +33,7 @@
                 app:layout_constraintVertical_bias="0.02" />
 
             <EditText
-                android:id="@+id/txtAgrNomUsuario"
+                android:id="@+id/txtBuscCedula"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -44,10 +44,10 @@
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/textView"
+                app:layout_constraintEnd_toEndOf="@+id/tvTitutlo"
                 app:layout_constraintHorizontal_bias="0.455"
-                app:layout_constraintStart_toStartOf="@+id/textView"
-                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:layout_constraintStart_toStartOf="@+id/tvTitutlo"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitutlo"
                 app:layout_constraintVertical_bias="0.03" />
 
             <EditText
@@ -61,10 +61,10 @@
                 android:inputType="textPassword"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/txtAgrNomUsuario"
+                app:layout_constraintEnd_toEndOf="@+id/txtBuscCedula"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/txtAgrNomUsuario"
-                app:layout_constraintTop_toBottomOf="@+id/txtAgrNomUsuario"
+                app:layout_constraintStart_toStartOf="@+id/txtBuscCedula"
+                app:layout_constraintTop_toBottomOf="@+id/txtBuscCedula"
                 app:layout_constraintVertical_bias="0.03" />
 
             <EditText

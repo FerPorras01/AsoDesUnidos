@@ -55,7 +55,7 @@ public class AgregarClienteFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_admin_agregar_cliente, container, false);
 
-        txtAgrNomUsuario = view.findViewById(R.id.txtAgrNomUsuario);
+        txtAgrNomUsuario = view.findViewById(R.id.txtBuscCedula);
         txtAgrClave = view.findViewById(R.id.txtAgrClave);
         txtAgrConfirmarClave = view.findViewById(R.id.txtAgrConfirmarClave);
         txtAgrCedula = view.findViewById(R.id.txtAgrCedula);
