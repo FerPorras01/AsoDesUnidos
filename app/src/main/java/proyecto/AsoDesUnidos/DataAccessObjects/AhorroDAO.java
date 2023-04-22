@@ -24,11 +24,12 @@ public interface AhorroDAO {
     void delete(Ahorro... ahorro);
 
     @Update
-    public void updateAhorros(Ahorro... ahorros);
+    void updateAhorros(Ahorro... ahorros);
 
     @Query("SELECT * FROM ahorro")
-    public Ahorro[] loadAllAhorros();
+    Ahorro[] loadAllAhorros();
 
     @Query("SELECT * FROM ahorro WHERE idCliente = :clienteId")
     List<Ahorro> findByClienteId(int clienteId);
+
 }

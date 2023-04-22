@@ -77,11 +77,12 @@ public class Ahorro {
         this.totalAhorrado = totalAhorrado;
     }
 
-    public Boolean getEstado() {
+    public Boolean isActivo() {
         return estado;
     }
 
     public void setEstado(Boolean estado) {
         this.estado = estado;
     }
+
 }

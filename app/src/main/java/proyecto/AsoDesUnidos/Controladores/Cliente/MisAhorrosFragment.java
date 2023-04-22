@@ -36,7 +36,7 @@ public class  MisAhorrosFragment extends Fragment {
     private String mParam2;
     private RecyclerView recyclerViewAhorros;
     private AhorroAdapter adapter;
-    private List<Ahorro> listAhorro;
+    private List<Ahorro> listAhorros;
     private AhorroDAO ahorroDAO;
 
     public MisAhorrosFragment() {
@@ -77,8 +77,8 @@ public class  MisAhorrosFragment extends Fragment {
         View view=  inflater.inflate(R.layout.fragment_mis_ahorros, container, false);
         recyclerViewAhorros = view.findViewById(R.id.recyclerViewAhorros);
         recyclerViewAhorros.setLayoutManager(new LinearLayoutManager(getActivity()));
-        listAhorro= obtenerListaAhorros();
-        adapter = new AhorroAdapter(getActivity(), listAhorro);
+        listAhorros= obtenerListaAhorros();
+        adapter = new AhorroAdapter(getActivity(), listAhorros);
         recyclerViewAhorros.setAdapter(adapter);
         return view;
     }
@@ -87,7 +87,7 @@ public class  MisAhorrosFragment extends Fragment {
         ConexionBaseDatos db = Room.databaseBuilder(getActivity().getApplicationContext(),
                 ConexionBaseDatos.class, "database-name").allowMainThreadQueries().build();
         ahorroDAO = db.ahorroDAO();
-        return listAhorro= ahorroDAO.findByClienteId(idCliente);
+        return listAhorros= ahorroDAO.findByClienteId(idCliente);
 
     }
 }

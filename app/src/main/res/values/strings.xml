@@ -29,4 +29,5 @@
     <string name="cuotaA">Cuota</string>
     <string name="monto_ahorrado">Monto ahorrado</string>
     <string name="tipoA">Navideño</string>
+    <string name="cuota_mensual">Digite la cuota mensual</string>
 </resources>

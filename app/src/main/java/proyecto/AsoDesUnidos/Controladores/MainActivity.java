@@ -71,19 +71,20 @@ public class MainActivity extends AppCompatActivity {
         Prestamo pre1=new Prestamo(1,20000.0, (20000.0*0.1)+20000,"Personal", (float) 0.10, (5));
         Prestamo pre2=new Prestamo(1,100000.0,(100000.0*0.08)+100000,"Educacion", (float) 0.08, 10);
 
-        Ahorro aho1 = new Ahorro(1,0.0,"Navideño",10000.0, true);
-        Ahorro aho2 = new Ahorro(1,0.0,"Escolar",20000.0, true);
-        Ahorro aho3 = new Ahorro(1,0.0,"Marchamo",30000.0, true);
-        Ahorro aho4 = new Ahorro(1,0.0,"Extraordinario",40000.0, true);
+        Ahorro aho1 = new Ahorro(1,0.0,"Navideño",0.0, false);
+        Ahorro aho2 = new Ahorro(1,0.0,"Escolar",0.0, false);
+        Ahorro aho3 = new Ahorro(1,0.0,"Marchamo",0.0, false);
+        Ahorro aho4 = new Ahorro(1,0.0,"Extraordinario",0.0, false);
 
-        /*db.usuarioDAO().insertAll(usuario1, usuario2, usuario3);
+        db.usuarioDAO().insertAll(usuario1, usuario2, usuario3);
         db.clienteDAO().insertAll(mario, maria, fer);
         db.prestamoDAO().insertAll(pre1, pre2);
-        db.ahorroDAO().insertAll(aho1, aho2, aho3, aho4);*/
+        db.ahorroDAO().insertAll(aho1, aho2, aho3, aho4);
 
         List<Cliente> clienteList=db.clienteDAO().getAllClientes();
         List<Usuario> usuarioList=db.usuarioDAO().getAllUsuarios();
         List<Prestamo> prestamoList=db.prestamoDAO().getAllPrestamos();
+        List<Ahorro> ahorroList=db.ahorroDAO().getAllAhorros();
 
         for(Usuario list: usuarioList){
             Log.d("Usuario", list.nombre + " " + list.clave + " " + list.rol);
@@ -94,6 +95,9 @@ public class MainActivity extends AppCompatActivity {
         }
         for(Prestamo list: prestamoList){
             Log.d("Prestamo", list.monto + " " + list.montoTotal + " " + list.tipo + " " + list.interes + " " + list.periodo);
+        }
+        for(Ahorro list: ahorroList){
+            Log.d("Ahorro", list.tipo+ " " + list.estado + " " + list.cuota + " " + list.totalAhorrado);
         }
 
 
