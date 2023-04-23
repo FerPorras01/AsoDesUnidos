@@ -76,10 +76,10 @@ public class MainActivity extends AppCompatActivity {
         Ahorro aho3 = new Ahorro(1,0.0,"Marchamo",0.0, false);
         Ahorro aho4 = new Ahorro(1,0.0,"Extraordinario",0.0, false);
 
-        db.usuarioDAO().insertAll(usuario1, usuario2, usuario3);
+        /*db.usuarioDAO().insertAll(usuario1, usuario2, usuario3);
         db.clienteDAO().insertAll(mario, maria, fer);
         db.prestamoDAO().insertAll(pre1, pre2);
-        db.ahorroDAO().insertAll(aho1, aho2, aho3, aho4);
+        db.ahorroDAO().insertAll(aho1, aho2, aho3, aho4);*/
 
         List<Cliente> clienteList=db.clienteDAO().getAllClientes();
         List<Usuario> usuarioList=db.usuarioDAO().getAllUsuarios();
@@ -99,8 +99,6 @@ public class MainActivity extends AppCompatActivity {
         for(Ahorro list: ahorroList){
             Log.d("Ahorro", list.tipo+ " " + list.estado + " " + list.cuota + " " + list.totalAhorrado);
         }
-
-
     }
     public static void cerrarSesion(Activity activity){
         activity.finish();
@@ -109,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         activity.startActivity(intent);
     }
-
     public static void deseleccionarMenu(Menu menu){
         menu.setGroupCheckable(0, true, false);
         for(int i=0; i< menu.size(); i++){

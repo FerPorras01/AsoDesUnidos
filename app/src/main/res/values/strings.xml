@@ -30,4 +30,10 @@
     <string name="monto_ahorrado">Monto ahorrado</string>
     <string name="tipoA">Navideño</string>
     <string name="cuota_mensual">Digite la cuota mensual</string>
+    <string name="informacion_personal">Información Personal</string>
+    <string name="informaci_n_personal">Información Personal</string>
+    <string name="nombreCliente">Nombre</string>
+    <string name="calcular_cuota_titulo">Calcular cuota</string>
+    <string name="tituloCuota">Calcular cuota</string>
+    <string name="montoAfiliado">Monto</string>
 </resources>

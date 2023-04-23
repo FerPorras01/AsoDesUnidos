@@ -1,14 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Controladores.Cliente.CalculoCuotaFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+
+        <RadioGroup
+            android:id="@+id/rGroupPlazo"
+            android:layout_width="353dp"
+            android:layout_height="147dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tvPlazo"
+            app:layout_constraintHorizontal_bias="0.473"
+            app:layout_constraintStart_toStartOf="@+id/tvPlazo"
+            app:layout_constraintTop_toBottomOf="@+id/tvPlazo"
+            app:layout_constraintVertical_bias="0.0">
+
+            <RadioButton
+                android:id="@+id/rBtnPlazo3"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="3 años" />
+
+            <RadioButton
+                android:id="@+id/rBtnPlazo5"
+                android:layout_width="237dp"
+                android:layout_height="48dp"
+                android:text="5 años" />
+
+            <RadioButton
+                android:id="@+id/rBtnPlazo10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="10 años" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tvTituloCuota"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tituloCuota"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.022" />
+
+        <EditText
+            android:id="@+id/txtMontoAfiliado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="152dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/montoAfiliado"
+            android:inputType="number"
+            android:minHeight="48dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/rGroupPlazo"
+            app:layout_constraintHorizontal_bias="0.559"
+            app:layout_constraintStart_toStartOf="@+id/rGroupPlazo"
+            app:layout_constraintTop_toBottomOf="@+id/rGroupPlazo"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="LabelFor" />
+
+        <TextView
+            android:id="@+id/tvCuotaResultante"
+            android:layout_width="140dp"
+            android:layout_height="45dp"
+            android:hint="@string/cuota"
+            app:layout_constraintBottom_toBottomOf="@+id/btnCalcular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.296"
+            app:layout_constraintStart_toEndOf="@+id/btnCalcular"
+            app:layout_constraintTop_toTopOf="@+id/btnCalcular"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <RadioGroup
+            android:id="@+id/rGroupTipoCredito"
+            android:layout_width="354dp"
+            android:layout_height="190dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTipoCredito"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="TextSizeCheck">
+
+            <RadioButton
+                android:id="@+id/rBtnHipotecario"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Hipotecario" />
+
+            <RadioButton
+                android:id="@+id/rBtnEducacion"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Educación" />
+
+            <RadioButton
+                android:id="@+id/rBtnPersonal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Personal" />
+
+            <RadioButton
+                android:id="@+id/rBtnViajes"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:minHeight="48dp"
+                android:text="Viajes" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tvTipoCredito"
+            android:layout_width="139dp"
+            android:layout_height="26dp"
+            android:text="Tipo de crédito"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tvTituloCuota"
+            app:layout_constraintHorizontal_bias="0.489"
+            app:layout_constraintStart_toStartOf="@+id/tvTituloCuota"
+            app:layout_constraintTop_toBottomOf="@+id/tvTituloCuota"
+            app:layout_constraintVertical_bias="0.047" />
+
+        <TextView
+            android:id="@+id/tvPlazo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Plazo del crédito"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/rGroupTipoCredito"
+            app:layout_constraintHorizontal_bias="0.472"
+            app:layout_constraintStart_toStartOf="@+id/rGroupTipoCredito"
+            app:layout_constraintTop_toBottomOf="@+id/rGroupTipoCredito"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/btnCalcular"
+            android:layout_width="115dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="56dp"
+            android:text="Calcular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.229"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtMontoAfiliado"
+            app:layout_constraintVertical_bias="1.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

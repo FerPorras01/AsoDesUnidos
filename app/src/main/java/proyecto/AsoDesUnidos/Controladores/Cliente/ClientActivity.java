@@ -61,7 +61,16 @@ public class ClientActivity extends AppCompatActivity {
                     replaceFragment(misAhorrosFragment);
                     break;
                 case R.id.btnMisCalcCouta:
-                    replaceFragment(new CalculoCuotaFragment());
+                    bundle.putInt(idCliente, cliente.id);
+                    CalculoCuotaFragment calculoCuotaFragment = new CalculoCuotaFragment();
+                    calculoCuotaFragment.setArguments(bundle);
+                    replaceFragment(calculoCuotaFragment);
+                    break;
+                case R.id.btnInfoPersonal:
+                    bundle.putInt(idCliente, cliente.id);
+                    InformacionPersonalFragment informacionPersonalFragment= new InformacionPersonalFragment();
+                    informacionPersonalFragment.setArguments(bundle);
+                    replaceFragment(informacionPersonalFragment);
                     break;
                 case R.id.btnCerrarSesion:
                     MainActivity.cerrarSesion(this);

@@ -2,6 +2,7 @@ package proyecto.AsoDesUnidos.Utiles;
 
 import android.content.Context;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 
 public class Utiles {
 
