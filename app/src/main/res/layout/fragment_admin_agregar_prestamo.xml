@@ -40,7 +40,6 @@
             android:inputType="textPersonName"
             android:minHeight="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
-
             app:layout_constraintEnd_toEndOf="@+id/tvTitutlo"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/tvTitutlo"
@@ -78,7 +77,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="Monto "
             android:inputType="number"
+            android:enabled="false"
+            android:minHeight="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/tvMontoMaximo"
             app:layout_constraintHorizontal_bias="0.516"
@@ -115,19 +117,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="3 años"
-                android:checked="true"/>
+                android:clickable="false" />
 
             <RadioButton
                 android:id="@+id/rdBtnCinco"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="5 años" />
+                android:text="5 años"
+                android:clickable="false" />
 
             <RadioButton
                 android:id="@+id/rdBtnDiez"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="10 años" />
+                android:text="10 años"
+                android:clickable="false" />
         </RadioGroup>
 
         <TextView
@@ -161,25 +165,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Hipotecario"
-                android:checked="true" />
+                android:clickable="false" />
 
             <RadioButton
                 android:id="@+id/rdBtnEducacion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Educación" />
+                android:text="Educación"
+                android:clickable="false" />
 
             <RadioButton
                 android:id="@+id/rdBtnPersonal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Personal" />
+                android:text="Personal"
+                android:clickable="false" />
 
             <RadioButton
                 android:id="@+id/rdBtnViajes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Viajes" />
+                android:text="Viajes"
+                android:clickable="false" />
 
         </RadioGroup>
 
@@ -194,17 +201,19 @@
             app:layout_constraintHorizontal_bias="0.551"
             app:layout_constraintStart_toStartOf="@+id/rdTipoPrestamo"
             app:layout_constraintTop_toBottomOf="@+id/rdTipoPrestamo"
-            app:layout_constraintVertical_bias="0.151" />
+            app:layout_constraintVertical_bias="0.151"
+            android:visibility="invisible"/>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnAgrPrestamo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Agregar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/tvCuota"
             app:layout_constraintStart_toStartOf="@+id/tvCuota"
-            app:layout_constraintTop_toBottomOf="@+id/tvCuota" />
+            app:layout_constraintTop_toBottomOf="@+id/tvCuota"
+            android:enabled="false" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
