@@ -107,7 +107,7 @@ public class CalculoCuotaFragment extends Fragment {
                     }
                     Double montoAfiliado = Double.parseDouble(txtMontoAfiliado.getText().toString());
                     double cuota = (montoAfiliado * tasaInteres) / plazoMeses;
-                    tvCuotaResultante.setText(String.format("$" + "%.2f", cuota));
+                    tvCuotaResultante.setText(String.format("₡" + "%.2f", cuota));
                 }
             }
 

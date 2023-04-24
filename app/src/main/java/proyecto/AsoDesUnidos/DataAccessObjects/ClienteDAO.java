@@ -31,6 +31,9 @@ public interface ClienteDAO {
     @Query("SELECT * FROM cliente where idUsuario = :idUsuario;")
     Cliente getClienteByIdUsuario(int idUsuario);
 
+    @Query("SELECT * FROM cliente where id = :idCliente;")
+    Cliente getClienteById(int idCliente);
+
 }
 
 

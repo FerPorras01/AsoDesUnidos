@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
@@ -61,18 +63,20 @@ public class PrestamoAdapter extends RecyclerView.Adapter<PrestamoAdapter.Presta
 
                 String montoStr = editTextNMonto.getText().toString();
                 double monto = Double.parseDouble(montoStr);
-                double montoRestante = prestamo.getMonto() - monto;
-                double montoTotalRestante=prestamo.getMontoTotal()-monto;
-                prestamo.setMonto(montoRestante);
-                prestamo.setMontoTotal(montoTotalRestante);
-                ConexionBaseDatos db = Room.databaseBuilder(context.getApplicationContext(),
-                        ConexionBaseDatos.class, "database-name").allowMainThreadQueries().build();
-                ClienteDAO clienteDAO = db.clienteDAO();
-                db.prestamoDAO().updatePrestamos(prestamo);
-                notifyDataSetChanged();
-
-
-
+                if(monto>0) {
+                    double montoRestante = prestamo.getMonto() - monto;
+                    double montoTotalRestante = prestamo.getMontoTotal() - monto;
+                    prestamo.setMonto(montoRestante);
+                    prestamo.setMontoTotal(montoTotalRestante);
+                    ConexionBaseDatos db = Room.databaseBuilder(context.getApplicationContext(),
+                            ConexionBaseDatos.class, "database-name").allowMainThreadQueries().build();
+                    ClienteDAO clienteDAO = db.clienteDAO();
+                    db.prestamoDAO().updatePrestamos(prestamo);
+                    notifyDataSetChanged();
+                }
+                else {
+                    Toast.makeText(context, "El monto debe ser mayor a lo digitado", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         alertDialogBuilder.setNegativeButton("Cancelar", null);

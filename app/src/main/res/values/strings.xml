@@ -4,9 +4,9 @@
     <string name="txtClave">Contraseña</string>
     <string name="btnIngresar">Ingresar</string>
     <string name="btnSalir">Salir</string>
-    <string name="btnMisPrestamos">Mis Préstamos</string>
-    <string name="btnMisAhorros">Mis Ahorros</string>
-    <string name="btnMisCalcCouta">Calcular Cuota</string>
+    <string name="btnMisPrestamos">Préstamos</string>
+    <string name="btnMisAhorros">Ahorros</string>
+    <string name="btnMisCalcCouta">Calc. Cuota</string>
     <string name="btnCerrarSesion">Cerrar Sesión</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -30,7 +30,7 @@
     <string name="monto_ahorrado">Monto ahorrado</string>
     <string name="tipoA">Navideño</string>
     <string name="cuota_mensual">Digite la cuota mensual</string>
-    <string name="informacion_personal">Información Personal</string>
+    <string name="informacion_personal">Inf. Personal</string>
     <string name="informaci_n_personal">Información Personal</string>
     <string name="nombreCliente">Nombre</string>
     <string name="calcular_cuota_titulo">Calcular cuota</string>

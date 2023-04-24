@@ -28,6 +28,10 @@ public interface AhorroDAO {
 
     @Query("SELECT * FROM ahorro")
     Ahorro[] loadAllAhorros();
+    @Query("SELECT * FROM ahorro WHERE id = :id")
+    Ahorro getAhorroById(int id);
+    @Query("UPDATE ahorro SET totalAhorrado = totalAhorrado + :cuota WHERE id = :ahorroId")
+    void updateAhorroSaldo(double cuota, int ahorroId);
 
     @Query("SELECT * FROM ahorro WHERE idCliente = :clienteId")
     List<Ahorro> findByClienteId(int clienteId);
