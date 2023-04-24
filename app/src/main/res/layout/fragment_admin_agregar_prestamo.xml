@@ -11,23 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tvTitutlo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:width="300dp"
-            android:text="@string/agregar_pr_stamo"
-            android:textAlignment="center"
-            android:textColor="#EF6C00"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.02" />
-
         <EditText
             android:id="@+id/txtBuscCedula"
             android:layout_width="wrap_content"
@@ -38,23 +21,24 @@
             android:hint="Cédula del cliente"
             android:importantForAutofill="no"
             android:inputType="textPersonName"
+            android:maxLength="9"
             android:minHeight="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/tvTitutlo"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/tvTitutlo"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitutlo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.236"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/btnBuscar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="12dp"
             android:text="Buscar"
             app:layout_constraintBottom_toBottomOf="@+id/txtBuscCedula"
-            app:layout_constraintEnd_toEndOf="@+id/tvTitutlo"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/txtBuscCedula"
             app:layout_constraintTop_toTopOf="@+id/txtBuscCedula"
             app:layout_constraintVertical_bias="0.0" />
@@ -63,30 +47,30 @@
             android:id="@+id/tvMontoMaximo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Monto maximo: $1000"
+            android:textAlignment="center"
             android:textSize="18sp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/btnBuscar"
-            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintStart_toStartOf="@+id/txtBuscCedula"
             app:layout_constraintTop_toBottomOf="@+id/txtBuscCedula"
-            app:layout_constraintVertical_bias="0.041" />
+            app:layout_constraintVertical_bias="0.103" />
 
         <EditText
             android:id="@+id/txtMontoPrestamo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:enabled="false"
             android:hint="Monto "
             android:inputType="number"
-            android:enabled="false"
             android:minHeight="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/tvMontoMaximo"
-            app:layout_constraintHorizontal_bias="0.516"
             app:layout_constraintStart_toStartOf="@+id/tvMontoMaximo"
             app:layout_constraintTop_toBottomOf="@+id/tvMontoMaximo"
-            app:layout_constraintVertical_bias="0.02" />
+            app:layout_constraintVertical_bias="0.042" />
 
         <TextView
             android:id="@+id/tvPlazoPrestamo"
@@ -116,22 +100,22 @@
                 android:id="@+id/rdBtnTres"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="3 años"
-                android:clickable="false" />
+                android:clickable="false"
+                android:text="3 años" />
 
             <RadioButton
                 android:id="@+id/rdBtnCinco"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="5 años"
-                android:clickable="false" />
+                android:clickable="false"
+                android:text="5 años" />
 
             <RadioButton
                 android:id="@+id/rdBtnDiez"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="10 años"
-                android:clickable="false" />
+                android:clickable="false"
+                android:text="10 años" />
         </RadioGroup>
 
         <TextView
@@ -164,56 +148,74 @@
                 android:id="@+id/rdBtnHipotecario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hipotecario"
-                android:clickable="false" />
+                android:clickable="false"
+                android:text="Hipotecario" />
 
             <RadioButton
                 android:id="@+id/rdBtnEducacion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Educación"
-                android:clickable="false" />
+                android:clickable="false"
+                android:text="Educación" />
 
             <RadioButton
                 android:id="@+id/rdBtnPersonal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Personal"
-                android:clickable="false" />
+                android:clickable="false"
+                android:text="Personal" />
 
             <RadioButton
                 android:id="@+id/rdBtnViajes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Viajes"
-                android:clickable="false" />
+                android:clickable="false"
+                android:text="Viajes" />
 
         </RadioGroup>
 
         <TextView
             android:id="@+id/tvCuota"
-            android:layout_width="wrap_content"
+            android:layout_width="155dp"
             android:layout_height="wrap_content"
             android:text="Cuota: $0"
+            android:textAlignment="center"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/rdTipoPrestamo"
-            app:layout_constraintHorizontal_bias="0.551"
-            app:layout_constraintStart_toStartOf="@+id/rdTipoPrestamo"
-            app:layout_constraintTop_toBottomOf="@+id/rdTipoPrestamo"
-            app:layout_constraintVertical_bias="0.151"
-            android:visibility="invisible"/>
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/tvMontoTotal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.756"
+            app:layout_constraintStart_toEndOf="@+id/tvMontoTotal"
+            app:layout_constraintTop_toTopOf="@+id/tvMontoTotal"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/btnAgrPrestamo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:enabled="false"
             android:text="Agregar"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/tvCuota"
-            app:layout_constraintStart_toStartOf="@+id/tvCuota"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvCuota"
-            android:enabled="false" />
+            app:layout_constraintVertical_bias="0.673" />
+
+        <TextView
+            android:id="@+id/tvMontoTotal"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:text="Monto Total: $0"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.097"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rdTipoPrestamo"
+            app:layout_constraintVertical_bias="0.062" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

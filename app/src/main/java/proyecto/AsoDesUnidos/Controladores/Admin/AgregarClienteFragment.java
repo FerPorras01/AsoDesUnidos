@@ -70,31 +70,20 @@ public class AgregarClienteFragment extends Fragment {
         spnAgrEstCivil.setAdapter(adapter);
 
         txtAgrFecNac.setOnClickListener(v -> {
-            // on below line we are getting
-            // the instance of our calendar.
             final Calendar c = Calendar.getInstance();
 
-            // on below line we are getting
-            // our day, month and year.
             int year = c.get(Calendar.YEAR);
             int month = c.get(Calendar.MONTH);
             int day = c.get(Calendar.DAY_OF_MONTH);
 
-            // on below line we are creating a variable for date picker dialog.
             @SuppressLint("SetTextI18n") DatePickerDialog datePickerDialog = new DatePickerDialog(
-                    // on below line we are passing context.
                     view.getContext(),
                     (view1, year1, monthOfYear, dayOfMonth) -> {
-                        // on below line we are setting date to our edit text.
                         txtAgrFecNac.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year1);
 
                     },
-                    // on below line we are passing year,
-                    // month and day for selected date in our date picker.
                     year, month, day);
             datePickerDialog.getDatePicker().setMaxDate(new Date().getTime());
-            // at last we are calling show to
-            // display our date picker dialog.
             datePickerDialog.show();
         });
 
@@ -147,7 +136,7 @@ public class AgregarClienteFragment extends Fragment {
             clienteDAO = db.clienteDAO();
 
             nuevoCliente = new Cliente((int) idUsuario, txtAgrCedula.getText().toString(), txtAgrNombre.getText().toString(), Double.parseDouble(txtAgrSalario.getText().toString()),
-                    txtAgrTelefono.getText().toString(), parseDate(txtAgrFecNac.getText().toString()), spnAgrEstCivil.getSelectedItem().toString(), txtMtlAgrDireccion.getText().toString());
+                    txtAgrTelefono.getText().toString(), Utiles.parsearFecha(txtAgrFecNac.getText().toString()), spnAgrEstCivil.getSelectedItem().toString(), txtMtlAgrDireccion.getText().toString());
             return clienteDAO.insertarCliente(nuevoCliente);
         }
         catch (android.database.sqlite.SQLiteConstraintException e){
@@ -173,10 +162,5 @@ public class AgregarClienteFragment extends Fragment {
         else{
             Log.d("Crear Ahorros:", "Ocurrió un error inesperado");
         }
-    }
-
-    private LocalDate parseDate(String date) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-M-yyyy");
-        return LocalDate.parse(date, formatter);
     }
 }

@@ -3,6 +3,9 @@ package proyecto.AsoDesUnidos.Utiles;
 import android.content.Context;
 import android.widget.EditText;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class Utiles {
 
     public static boolean verificarCampo(EditText campo){
@@ -36,5 +39,10 @@ public class Utiles {
             return true;
         }
         return false;
+    }
+
+    public static LocalDate parsearFecha(String date) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d-M-yyyy");
+        return LocalDate.parse(date, formatter);
     }
 }
