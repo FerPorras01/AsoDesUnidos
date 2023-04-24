@@ -19,8 +19,12 @@ public class Prestamo {
     public int id;
     @ColumnInfo(name = "idCliente", index = true)
     public int idCliente;
+
     @ColumnInfo(name = "monto")
     public Double monto;
+
+    @ColumnInfo(name = "montoTotal")
+    public Double montoTotal;
 
     @ColumnInfo(name = "tipo")
     public String tipo;
@@ -29,14 +33,23 @@ public class Prestamo {
     public float interes;
 
     @ColumnInfo(name = "periodo")
-    public LocalDate periodo;
+    public int periodo;
 
-    public Prestamo(int idCliente, Double monto, String tipo, float interes, LocalDate periodo){
+    public Prestamo(int idCliente, Double monto, Double montoTotal, String tipo, float interes, int periodo){
         this.idCliente=idCliente;
         this.monto=monto;
+        this.montoTotal=montoTotal;
         this.tipo=tipo;
         this.interes=interes;
         this.periodo=periodo;
+    }
+
+    public Double getMontoTotal() {
+        return montoTotal;
+    }
+
+    public void setMontoTotal(Double montoTotal) {
+        this.montoTotal = montoTotal;
     }
 
     public int getId() {
@@ -79,11 +92,11 @@ public class Prestamo {
         this.interes = interes;
     }
 
-    public LocalDate getPeriodo() {
+    public int getPeriodo() {
         return periodo;
     }
 
-    public void setPeriodo(LocalDate periodo) {
+    public void setPeriodo(int periodo) {
         this.periodo = periodo;
     }
 }

@@ -1,6 +1,9 @@
 package proyecto.AsoDesUnidos.BD;
 
+import android.content.Context;
+
 import androidx.room.Database;
+import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import proyecto.AsoDesUnidos.DataAccessObjects.AhorroDAO;
 import proyecto.AsoDesUnidos.DataAccessObjects.ClienteDAO;
@@ -22,6 +25,8 @@ import proyecto.AsoDesUnidos.Modelos.Usuario;
         public abstract AhorroDAO ahorroDAO();
 
         public abstract PrestamoDAO prestamoDAO();
+
     }
+
 
 

@@ -10,7 +10,12 @@
     <item android:title="@string/btnMisCalcCouta"
         android:icon="@drawable/ic_calc_couta"
         android:id="@+id/btnMisCalcCouta"/>
-    <item android:title="@string/btnCerrarSesion"
+    <item
+        android:id="@+id/btnInfoPersonal"
+        android:icon="@drawable/ic_informacion_personal"
+        android:title="@string/informacion_personal" />
+    <item
+        android:id="@+id/btnCerrarSesion"
         android:icon="@drawable/ic_cerrar_sesion"
-        android:id="@+id/btnCerrarSesion"/>
+        android:title="@string/btnCerrarSesion" />
 </menu>
