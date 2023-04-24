@@ -1,6 +1,5 @@
 package proyecto.AsoDesUnidos.Utiles;
 
-import android.content.Context;
 import android.widget.EditText;
 
 import java.time.LocalDate;
@@ -21,6 +20,18 @@ public class Utiles {
         if(verificarCampo(campo)) {
             if (Double.parseDouble(campo.getText().toString()) <= num) {
                 campo.setError("El campo \"" + campo.getHint() + "\" debe ser mayor a " + num + '.');
+                return false;
+            }
+            campo.setError(null);
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean menorA(EditText campo, Double num) {
+        if(verificarCampo(campo)) {
+            if (Double.parseDouble(campo.getText().toString()) > num) {
+                campo.setError("El campo \"" + campo.getHint() + "\" debe ser menor o igual a " + num + '.');
                 return false;
             }
             campo.setError(null);

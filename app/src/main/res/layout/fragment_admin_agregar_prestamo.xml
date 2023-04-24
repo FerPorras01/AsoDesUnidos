@@ -20,7 +20,7 @@
             android:ems="10"
             android:hint="Cédula del cliente"
             android:importantForAutofill="no"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:maxLength="9"
             android:minHeight="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -54,8 +54,22 @@
             app:layout_constraintEnd_toEndOf="@+id/btnBuscar"
             app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintStart_toStartOf="@+id/txtBuscCedula"
+            app:layout_constraintTop_toBottomOf="@+id/tvNombreCliente"
+            app:layout_constraintVertical_bias="0.022" />
+
+        <TextView
+            android:id="@+id/tvNombreCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Cliente: "
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/btnBuscar"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toStartOf="@+id/txtBuscCedula"
             app:layout_constraintTop_toBottomOf="@+id/txtBuscCedula"
-            app:layout_constraintVertical_bias="0.103" />
+            app:layout_constraintVertical_bias="0.017" />
 
         <EditText
             android:id="@+id/txtMontoPrestamo"
@@ -64,13 +78,13 @@
             android:ems="10"
             android:enabled="false"
             android:hint="Monto "
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:minHeight="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/tvMontoMaximo"
             app:layout_constraintStart_toStartOf="@+id/tvMontoMaximo"
             app:layout_constraintTop_toBottomOf="@+id/tvMontoMaximo"
-            app:layout_constraintVertical_bias="0.042" />
+            app:layout_constraintVertical_bias="0.035" />
 
         <TextView
             android:id="@+id/tvPlazoPrestamo"

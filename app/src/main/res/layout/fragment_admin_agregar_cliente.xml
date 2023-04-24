@@ -124,7 +124,7 @@
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/agr_cli_telefono"
-            android:inputType="number"
+            android:inputType="phone"
             android:maxLength="8"
             android:minHeight="48dp"
             app:layout_constraintBottom_toBottomOf="parent"

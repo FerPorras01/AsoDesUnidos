@@ -20,7 +20,9 @@ import android.widget.Toast;
 
 import proyecto.AsoDesUnidos.BD.ConexionBaseDatos;
 import proyecto.AsoDesUnidos.DataAccessObjects.ClienteDAO;
+import proyecto.AsoDesUnidos.DataAccessObjects.PrestamoDAO;
 import proyecto.AsoDesUnidos.Modelos.Cliente;
+import proyecto.AsoDesUnidos.Modelos.Prestamo;
 import proyecto.AsoDesUnidos.R;
 import proyecto.AsoDesUnidos.Utiles.Utiles;
 
@@ -28,12 +30,15 @@ import proyecto.AsoDesUnidos.Utiles.Utiles;
 public class AgregarPrestamoFragment extends Fragment {
 
     EditText txtBuscCedula, txtMontoPrestamo;
-    TextView tvMontoMaximo, tvMontoTotal, tvCuota;
+    TextView tvNombreCliente, tvMontoMaximo, tvMontoTotal, tvCuota;
     Button btnbuscar, btnAgrPrestamo;
     RadioGroup rdPlazoPrestamo, rdTipoPrestamo;
     Cliente cliente;
+    int periodo = -1;
+    double montoMaximo, resultado = -1, cuota = -1;
+    float interes = -1;
 
-    double montoMaximo;
+    String tipo;
 
     public AgregarPrestamoFragment() {
         // Required empty public constructor
@@ -52,6 +57,7 @@ public class AgregarPrestamoFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_admin_agregar_prestamo, container, false);
 
+        tvNombreCliente = view.findViewById(R.id.tvNombreCliente);
         txtBuscCedula = view.findViewById(R.id.txtBuscCedula);
         txtMontoPrestamo = view.findViewById(R.id.txtMontoPrestamo);
         tvMontoMaximo = view.findViewById(R.id.tvMontoMaximo);
@@ -92,8 +98,13 @@ public class AgregarPrestamoFragment extends Fragment {
     private void habilitarFormulario(){
         montoMaximo = cliente.salario * .45;
         txtMontoPrestamo.setEnabled(true);
+
+        tvNombreCliente.setText("Cliente: " + cliente.nombre);
+        tvNombreCliente.setVisibility(View.VISIBLE);
+
         tvMontoMaximo.setText("Monto máximo: " + montoMaximo);
         tvMontoMaximo.setVisibility(View.VISIBLE);
+
         tvMontoTotal.setVisibility(View.VISIBLE);
         tvCuota.setVisibility(View.VISIBLE);
 
@@ -131,44 +142,80 @@ public class AgregarPrestamoFragment extends Fragment {
 
         rdPlazoPrestamo.setOnCheckedChangeListener((group, checkedId) -> calcularCouta());
         rdTipoPrestamo.setOnCheckedChangeListener((group, checkedId) -> calcularCouta());
+        btnAgrPrestamo.setOnClickListener(v -> agregarPrestamo());
     }
 
     @SuppressLint("NonConstantResourceId")
+    private void calcularResultado(){
+        resultado = Double.parseDouble(txtMontoPrestamo.getText().toString());
+        switch (rdTipoPrestamo.getCheckedRadioButtonId()) {
+            case R.id.rdBtnHipotecario:
+                resultado *= 1.075;
+                tipo = "Hipotecario";
+                interes = 7.5f;
+                break;
+            case R.id.rdBtnEducacion:
+                resultado *= 1.08f;
+                tipo = "Educacion";
+                interes = 8;
+                break;
+            case R.id.rdBtnPersonal:
+                resultado *= 1.1f;
+                tipo = "Personal";
+                interes = 10;
+                break;
+            case R.id.rdBtnViajes:
+                resultado *= 1.12f;
+                tipo = "Viajes";
+                interes = 12;
+                break;
+            default:
+                resultado = -1;
+                tipo = "";
+                interes = -1;
+        }
+    }
+    @SuppressLint("NonConstantResourceId")
     private void calcularCouta() {
-        if (Utiles.verificarCampo(txtMontoPrestamo)) {
-            double resultado = Double.parseDouble(txtMontoPrestamo.getText().toString()), cuota = 0;
-            switch (rdTipoPrestamo.getCheckedRadioButtonId()) {
-                case R.id.rdBtnHipotecario:
-                    resultado *= 1.075;
-                    break;
-                case R.id.rdBtnEducacion:
-                    resultado *= 1.08;
-                    break;
-                case R.id.rdBtnPersonal:
-                    resultado *= 1.1;
-                    break;
-                case R.id.rdBtnViajes:
-                    resultado *= 1.12;
-                    break;
-                default:
-                    resultado = 0;
-            }
+        if (Utiles.mayorA(txtMontoPrestamo, 0) && Utiles.menorA(txtMontoPrestamo, montoMaximo)) {
+            calcularResultado();
             switch (rdPlazoPrestamo.getCheckedRadioButtonId()) {
                 case R.id.rdBtnTres:
                     cuota = resultado / 36;
+                    periodo = 3;
                     break;
                 case R.id.rdBtnCinco:
                     cuota = resultado / 60;
+                    periodo = 5;
                     break;
                 case R.id.rdBtnDiez:
                     cuota = resultado / 120;
+                    periodo = 10;
                     break;
                 default:
-                    cuota = 0;
+                    cuota = -1;
             }
 
             tvMontoTotal.setText(String.format("Monto Total: $%.2f", resultado));
             tvCuota.setText(String.format("Cuota: $%.2f", cuota));
         }
+    }
+
+    private void limpiarFormulario(){
+
+    }
+
+    private void agregarPrestamo(){
+        try {
+            ConexionBaseDatos db = Room.databaseBuilder(requireContext(),
+                    ConexionBaseDatos.class, "database-name").allowMainThreadQueries().build();
+            PrestamoDAO prestamoDAO = db.prestamoDAO();
+            calcularCouta();
+            prestamoDAO.insertAll(new Prestamo(cliente.id, cuota, tipo, interes, periodo));
+            Toast.makeText(requireActivity(), "Se agregó el préstamo a " + cliente.nombre, Toast.LENGTH_SHORT).show();
+        }catch (Exception e){
+            Toast.makeText(requireActivity(), "Error al insertar", Toast.LENGTH_SHORT).show();
+        }
+
     }
 }

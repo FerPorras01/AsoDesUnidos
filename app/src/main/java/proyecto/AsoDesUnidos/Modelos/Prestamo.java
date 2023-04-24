@@ -29,9 +29,9 @@ public class Prestamo {
     public float interes;
 
     @ColumnInfo(name = "periodo")
-    public LocalDate periodo;
+    public int periodo;
 
-    public Prestamo(int idCliente, Double monto, String tipo, float interes, LocalDate periodo){
+    public Prestamo(int idCliente, Double monto, String tipo, float interes, int periodo){
         this.idCliente=idCliente;
         this.monto=monto;
         this.tipo=tipo;
@@ -79,11 +79,11 @@ public class Prestamo {
         this.interes = interes;
     }
 
-    public LocalDate getPeriodo() {
+    public int getPeriodo() {
         return periodo;
     }
 
-    public void setPeriodo(LocalDate periodo) {
+    public void setPeriodo(int periodo) {
         this.periodo = periodo;
     }
 }
