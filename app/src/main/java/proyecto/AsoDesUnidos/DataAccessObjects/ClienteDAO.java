@@ -36,6 +36,8 @@ public interface ClienteDAO {
     @Query("SELECT * FROM cliente where id = :idCliente;")
     Cliente getClienteById(int idCliente);
 
+    @Query("SELECT * FROM cliente where cedula = :cedula;")
+    Cliente getClienteByCedula(String cedula);
 }
 
 
