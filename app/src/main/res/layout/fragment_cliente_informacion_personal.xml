@@ -103,7 +103,7 @@
             app:layout_constraintEnd_toEndOf="@+id/TxtMlDireccion"
             app:layout_constraintStart_toStartOf="@+id/TxtMlDireccion"
             app:layout_constraintTop_toBottomOf="@+id/TxtMlDireccion"
-            tools:ignore="TextSizeCheck" />
+            tools:ignore="TextSizeCheck,TextContrastCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
