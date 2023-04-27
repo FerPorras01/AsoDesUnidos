@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="@string/agregar_cliente"
+    <item android:title="@string/agregarCliente"
         android:icon="@drawable/ic_baseline_add_24"
         android:id="@+id/btnAgregarCliente"/>
-    <item android:title="@string/agregar_pr_stamo"
+    <item android:title="@string/agregarPrestamo"
         android:icon="@drawable/ico_baseline_monetization_on_24"
         android:id="@+id/btnAgregarPrestamo"/>
-    <item android:title="@string/cerrar_sesi_n"
+    <item android:title="@string/cerrarSesion"
         android:icon="@drawable/ic_baseline_logout_24"
         android:id="@+id/btnCerrarSesion"/>
 </menu>

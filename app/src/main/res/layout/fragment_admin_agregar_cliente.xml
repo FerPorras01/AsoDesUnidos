@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".Controladores.Admin.AgregarClienteFragment" >
+    tools:context=".controladores.admin.AgregarClienteFragment" >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:layout_marginTop="5dp"
             android:width="300dp"
             android:ems="10"
-            android:hint="@string/txtNombre"
+            android:hint="@string/nombreDeUsuario"
             android:importantForAutofill="no"
             android:inputType="textPersonName"
             android:minHeight="48dp"
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:width="300dp"
             android:ems="10"
-            android:hint="@string/txtClave"
+            android:hint="@string/clave"
             android:importantForAutofill="no"
             android:inputType="textPassword"
             android:minHeight="48dp"
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:width="300dp"
             android:ems="10"
-            android:hint="@string/agr_cli_conf_clave"
+            android:hint="@string/confirmarClave"
             android:importantForAutofill="no"
             android:inputType="textPassword"
             android:minHeight="48dp"
@@ -70,7 +70,7 @@
             android:width="300dp"
             android:autofillHints=""
             android:ems="10"
-            android:hint="@string/agr_cli_cedula"
+            android:hint="@string/cedula"
             android:inputType="number"
             android:maxLength="9"
 
@@ -89,7 +89,7 @@
             android:width="300dp"
             android:autofillHints=""
             android:ems="10"
-            android:hint="@string/agr_cli_nombre"
+            android:hint="@string/nombre"
             android:inputType="textPersonName"
             android:minHeight="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -106,7 +106,7 @@
             android:width="300dp"
             android:autofillHints=""
             android:ems="10"
-            android:hint="@string/agr_cli_salario"
+            android:hint="@string/salario"
             android:inputType="number"
             android:minHeight="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -123,7 +123,7 @@
             android:width="300dp"
             android:autofillHints=""
             android:ems="10"
-            android:hint="@string/agr_cli_telefono"
+            android:hint="@string/telefono"
             android:inputType="phone"
             android:maxLength="8"
             android:minHeight="48dp"
@@ -143,7 +143,7 @@
             android:clickable="true"
             android:ems="10"
             android:focusable="false"
-            android:hint="@string/agr_cli_fecNac"
+            android:hint="@string/fechaNacimiento"
             android:inputType="date"
             android:minHeight="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -172,7 +172,7 @@
             android:autofillHints=""
             android:ems="10"
             android:gravity="start|top"
-            android:hint="@string/agr_cli_direccion"
+            android:hint="@string/direccion"
             android:inputType="textMultiLine"
             android:minHeight="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -186,14 +186,14 @@
             android:id="@+id/btnAgrCliente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/agregar_cliente"
+            android:text="@string/agregarCliente"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/txtMtlAgrDireccion"
             app:layout_constraintHorizontal_bias="0.503"
             app:layout_constraintStart_toStartOf="@+id/txtMtlAgrDireccion"
             app:layout_constraintTop_toBottomOf="@+id/txtMtlAgrDireccion"
             app:layout_constraintVertical_bias="0.25"
-            tools:ignore="DuplicateSpeakableTextCheck" />
+            tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

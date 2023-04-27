@@ -7,21 +7,21 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="@string/appName"
         android:supportsRtl="true"
         android:theme="@style/Theme.AsoDesUnidos"
         tools:targetApi="31">
         <activity
-            android:name=".Controladores.Cliente.ClientActivity"
+            android:name=".controladores.cliente.ClientActivity"
             android:exported="false" />
         <activity
-            android:name=".Controladores.Admin.AdminActivity"
+            android:name=".controladores.admin.AdminActivity"
             android:exported="false" />
         <activity
-            android:name=".Controladores.LoginActivity"
+            android:name=".controladores.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".Controladores.MainActivity"
+            android:name=".controladores.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

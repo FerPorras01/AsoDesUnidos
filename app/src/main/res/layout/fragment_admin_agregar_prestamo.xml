@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".Controladores.Admin.AgregarClienteFragment" >
+    tools:context=".controladores.admin.AgregarClienteFragment" >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:layout_marginTop="12dp"
             android:width="200dp"
             android:ems="10"
-            android:hint="Cédula del cliente"
+            android:hint="@string/cedulaDelCliente"
             android:importantForAutofill="no"
             android:inputType="number"
             android:maxLength="9"
@@ -35,13 +35,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:text="Buscar"
+            android:text="@string/buscar"
             app:layout_constraintBottom_toBottomOf="@+id/txtBuscCedula"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/txtBuscCedula"
             app:layout_constraintTop_toTopOf="@+id/txtBuscCedula"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="TextContrastCheck" />
 
         <TextView
             android:id="@+id/tvMontoMaximo"
@@ -62,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="Cliente: "
+            android:text="@string/cliente"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/btnBuscar"
@@ -77,20 +78,21 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:enabled="false"
-            android:hint="Monto "
+            android:hint="@string/monto"
             android:inputType="numberDecimal"
             android:minHeight="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/tvMontoMaximo"
             app:layout_constraintStart_toStartOf="@+id/tvMontoMaximo"
             app:layout_constraintTop_toBottomOf="@+id/tvMontoMaximo"
-            app:layout_constraintVertical_bias="0.035" />
+            app:layout_constraintVertical_bias="0.035"
+            android:importantForAutofill="no" />
 
         <TextView
             android:id="@+id/tvPlazoPrestamo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Plazo del préstamo"
+            android:text="@string/plazoDelPrestamo"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/txtMontoPrestamo"
@@ -115,21 +117,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clickable="false"
-                android:text="3 años" />
+                android:text="@string/annios3" />
 
             <RadioButton
                 android:id="@+id/rdBtnCinco"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clickable="false"
-                android:text="5 años" />
+                android:text="@string/annios5" />
 
             <RadioButton
                 android:id="@+id/rdBtnDiez"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clickable="false"
-                android:text="10 años" />
+                android:text="@string/annios10" />
         </RadioGroup>
 
         <TextView
@@ -137,7 +139,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="296dp"
-            android:text="Tipo de préstamo"
+            android:text="@string/tipoDePrestamo"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/tvPlazoPrestamo"
@@ -163,28 +165,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clickable="false"
-                android:text="Hipotecario" />
+                android:text="@string/tipoHipotecario" />
 
             <RadioButton
                 android:id="@+id/rdBtnEducacion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clickable="false"
-                android:text="Educación" />
+                android:text="@string/tipoEducacion" />
 
             <RadioButton
                 android:id="@+id/rdBtnPersonal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clickable="false"
-                android:text="Personal" />
+                android:text="@string/tipoPersonal" />
 
             <RadioButton
                 android:id="@+id/rdBtnViajes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clickable="false"
-                android:text="Viajes" />
+                android:text="@string/tipoViajes" />
 
         </RadioGroup>
 
@@ -192,7 +194,7 @@
             android:id="@+id/tvCuota"
             android:layout_width="155dp"
             android:layout_height="wrap_content"
-            android:text="Cuota: $0"
+            android:text="@string/cuotaFlex"
             android:textAlignment="center"
             android:textSize="18sp"
             android:visibility="invisible"
@@ -208,7 +210,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:enabled="false"
-            android:text="Agregar"
+            android:text="@string/agregar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.504"
@@ -220,7 +222,7 @@
             android:id="@+id/tvMontoTotal"
             android:layout_width="155dp"
             android:layout_height="wrap_content"
-            android:text="Monto Total: $0"
+            android:text="@string/montoTotalFlex"
             android:textAlignment="center"
             android:textSize="18sp"
             android:visibility="invisible"

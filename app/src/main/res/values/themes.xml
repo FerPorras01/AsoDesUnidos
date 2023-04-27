@@ -4,7 +4,7 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/CapeVerde</item>
         <item name="colorPrimaryVariant">@color/CapeVerde</item>
-        <item name="colorOnPrimary">@color/RadomeTan</item>
+        <item name="colorOnPrimary">@color/SummerCitrus</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/SummerCitrus</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
