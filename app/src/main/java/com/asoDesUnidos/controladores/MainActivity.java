@@ -58,48 +58,11 @@ public class MainActivity extends AppCompatActivity {
         this.startActivity(intent);
         finish();
 
+        //Se hace un administrador quemado la primera vez para poder acceder al módulo de Administrador
+        //y poder crear/manipular clientes
+        Usuario usuario1= new Usuario("admin", "clave","cliente");
 
-        Usuario usuario1= new Usuario("mario12", "jsjsjdjsha22*","cliente");
-        Usuario usuario2= new Usuario("maria89", "jsjsjdooha28*","cliente");
-        Usuario usuario3= new Usuario("fernanda18", "jueyeubcdf18+","administrador");
-        Usuario usuario4= new Usuario("sebasAd", "sebas1205", "administrador");
-
-        Cliente mario= new Cliente(1,"402450378", "Mario", 255.000, "7667-5665", LocalDate.of(2010,5,1),"soltero", "400 metros oeste del HSVP");
-        Cliente maria= new Cliente(2, "402450320", "Maria", 355.000, "7688-5665", LocalDate.of(2000,2,10),"Soltero", "300 metros oeste del HSVP");
-        Cliente fer= new Cliente(3, "402450321", "Fernanda", 555.000, "8546-5164", LocalDate.of(2001,2,10),"Soltero", "400 metros oeste del parque de San Pedro");
-
-
-        Prestamo pre1=new Prestamo(1,20000.0, (20000.0*0.1)+20000,"Personal", (float) 0.10, (5));
-        Prestamo pre2=new Prestamo(1,100000.0,(100000.0*0.08)+100000,"Educacion", (float) 0.08, 10);
-
-        Ahorro aho1 = new Ahorro(1,0.0,"Navideño",0.0, false);
-        Ahorro aho2 = new Ahorro(1,0.0,"Escolar",0.0, false);
-        Ahorro aho3 = new Ahorro(1,0.0,"Marchamo",0.0, false);
-        Ahorro aho4 = new Ahorro(1,0.0,"Extraordinario",0.0, false);
-
-        /*db.usuarioDAO().insertAll(usuario1, usuario2, usuario3, usuario4);
-        db.clienteDAO().insertAll(mario, maria, fer);
-        db.prestamoDAO().insertAll(pre1, pre2);
-        db.ahorroDAO().insertAll(aho1, aho2, aho3, aho4);*/
-
-        List<Cliente> clienteList=db.clienteDAO().getAllClientes();
-        List<Usuario> usuarioList=db.usuarioDAO().getAllUsuarios();
-        List<Prestamo> prestamoList=db.prestamoDAO().getAllPrestamos();
-        List<Ahorro> ahorroList=db.ahorroDAO().getAllAhorros();
-
-        for(Usuario list: usuarioList){
-            Log.d("Usuario", list.getNombre() + " " + list.getClave() + " " + list.getRol());
-        }
-
-        for(Cliente list: clienteList){
-            Log.d("Cliente", list.getCedula() + " " + list.getNombre() + " " + list.getSalario() + " " + list.getTelefono() + " " + list.getFecNac() + " " + list.getEstCivil() + " " + list.getDireccion());
-        }
-        for(Prestamo list: prestamoList){
-            Log.d("Prestamo", list.getMonto() + " " + list.getMontoTotal() + " " + list.getTipo() + " " + list.getInteres() + " " + list.getPeriodo());
-        }
-        for(Ahorro list: ahorroList){
-            Log.d("Ahorro", list.getTipo() + " " + list.getEstado() + " " + list.getCuota() + " " + list.getTotalAhorrado());
-        }
+        db.usuarioDAO().insertAll(usuario1);
     }
     public static void cerrarSesion(Activity activity){
         activity.finish();
